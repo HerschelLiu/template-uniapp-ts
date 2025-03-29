@@ -20,7 +20,7 @@
 			}
 		},
 		{
-			"path": "pages/webview/index"
+			"path": "pages/webview/webview"
 		},
 		{
 			"path": "pages/jump/jump",

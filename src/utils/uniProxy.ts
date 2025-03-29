@@ -41,7 +41,52 @@ const compatibleAPIs = {
     // #endif
 
     return result
-  }
+  },
+
+  // authorize: (options: UniApp.AuthorizeOptions) => {
+  //   // #ifdef MP-WEIXIN || MP-BAIDU || MP-TOUTIAO || MP-LARK || MP-QQ || MP-KUAISHOU || MP-HARMONY
+  //   if (uni.authorize) return uni.authorize(options)
+  //   // #endif
+
+  //   // #ifdef WEB
+  //   if (!uni.authorize) {
+  //     async function authorize() {
+  //       try {
+  //         const permission = await navigator.permissions.query({ name: Authorize[options.scope] })
+  //         console.log(permission, 1212);
+  //       } catch (error) {
+  //         console.log(error, 1212);
+  //       }
+  //       return new Promise<void>(async (resolve, reject) => {
+  //         console.log(1);
+          
+  //         if (!navigator.permissions?.query) { 
+  //           return reject()
+  //         }
+
+  //         const permission = await navigator.permissions.query({ name: Authorize[options.scope] })
+  //         console.log(permission, 1212);
+          
+  //         const { state } = permission
+  //         if (state === 'granted') {
+  //           resolve()
+  //           console.log(111);
+            
+  //         } else if (state === 'prompt') {
+  //           permission.addEventListener('change', () => {
+  //             // console.log(222);
+  //             // authorize()
+  //           })
+  //         } else if (state === 'denied') {
+  //           reject()
+  //         }
+  //       })
+  //     }
+      
+  //     return authorize
+  //   }
+  //   // #endif
+  // }
 }
 
 const upp = new Proxy(uni, {
