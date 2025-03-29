@@ -1,0 +1,49 @@
+@mixin gradient($deg: 125deg, $startColor: #2bd1fd, $endColor: #4793fd, $start: 0%, $end: 100%) {
+  background: linear-gradient($deg, $startColor $start, $endColor $end);
+}
+
+@mixin width-height {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  white-space: nowrap;
+}
+
+// 多行文本截断
+@mixin row-ellipsis($line: 2) {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+}
+
+// ios安全区
+@mixin safe($css: bottom, $area: 0rpx) {
+  #{ $css }: #{$area};
+  #{ $css }: calc(#{$area} + constant(safe-area-inset-bottom));
+  #{ $css }: calc(#{$area} + env(safe-area-inset-bottom));
+}
+
+@mixin keyframes-fade-in {
+  @keyframes fade-in {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin fade-in {
+  animation: fade-in 0.3s cubic-bezier(0.44, 1.3, 0.67, 1.04) both;
+}

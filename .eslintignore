@@ -1,0 +1,6 @@
+dist/*.js
+src/static
+node_modules
+index.html
+src/components/qf-image-cropper
+src/pagesFace
