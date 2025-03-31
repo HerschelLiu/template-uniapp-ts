@@ -21,7 +21,7 @@ export const useEnterOptions = () => {
   }
 
   enterOptions.value = query
-  scene.value = options.scene
+  scene.value = options?.scene ?? ''
 
   useLog(`当前场景值`, `${scene.value}`)
   useLog(`当前启动参数`, `${JSON.stringify(enterOptions.value)}`)
