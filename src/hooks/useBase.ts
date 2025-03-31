@@ -13,7 +13,7 @@ export function useAppShow() {
 export const useEnterOptions = () => {
   const options = upp.getEnterOptionsSync()
   const { scene, enterOptions } = storeToRefs(useSettingsStore(pinia))
-  const query = options.query
+  const query = options?.query ?? {}
 
   if (query?.scene) {
     const _query = useArgsStrToObj(decodeURIComponent(query.scene))
