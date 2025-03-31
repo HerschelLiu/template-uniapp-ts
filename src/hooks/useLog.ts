@@ -1,9 +1,13 @@
-const isDevTools = upp.getSystemInfoSync().platform === 'devtools'
+let isDevTools = false
+
+// #ifdef MP
+isDevTools = upp.getSystemInfoSync().platform === 'devtools'
+// #endif
 
 /** 打印，生产环境时会将日志推送至小程序后台 */
 export function useLog(title: string, info: string) {
   const { RealtimeLogManager } = storeToRefs(useSettingsStore(pinia))
-  
+
   if (isDevTools) {
     console.log(
       `%c${title}%c${info}`,
