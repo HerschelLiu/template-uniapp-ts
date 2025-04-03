@@ -82,7 +82,7 @@ const buttonStyle = computed(() => {
     width: useUnit(menuButton.height, 'px'),
     height: useUnit(menuButton.height, 'px'),
     top: menuButton.top ? useUnit(menuButton.top, 'px') : '50%',
-    transform: `translateY(${menuButton.top ? useUnit(menuButton.top, 'px') : '-50%'})`
+    transform: `translateY(${menuButton.top ? 0 : '-50%'})`
   })
 })
 

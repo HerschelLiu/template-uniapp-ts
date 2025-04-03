@@ -43,6 +43,9 @@
       "treeShaking": {
         "enable": false
       }
+    },
+    "router": {
+      "base": "/h5/"
     }
   },
   "quickapp": {},
