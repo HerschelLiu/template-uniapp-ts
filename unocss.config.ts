@@ -1,21 +1,21 @@
+import { transformerDirectives } from 'unocss'
 import presetWeapp from 'unocss-preset-weapp'
 import { extractorAttributify, transformerClass } from 'unocss-preset-weapp/transformer'
 
 const { presetWeappAttributify, transformerAttributify } = extractorAttributify()
-import { transformerDirectives } from 'unocss'
 
 export default {
   presets: [
     // https://github.com/MellowCo/unocss-preset-weapp
     presetWeapp(),
     // attributify autocomplete
-    presetWeappAttributify(),
+    presetWeappAttributify()
   ],
   shortcuts: [
     {
       'border-base': 'border border-gray-500_10',
-      'center': 'flex justify-center items-center',
-    },
+      center: 'flex justify-center items-center'
+    }
   ],
 
   transformers: [

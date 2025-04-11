@@ -5,24 +5,27 @@ interface User {
   userId: string
 }
 
-export const useUserStore = defineStore('user', () => {
-  const assets: User = {
-    accessToken: '',
-    phone: '',
-    isLogin: false,
-    userId: ''
-  }
-  const state = reactive<User>({ ...assets })
+export const useUserStore = defineStore(
+  'user',
+  () => {
+    const assets: User = {
+      accessToken: '',
+      phone: '',
+      isLogin: false,
+      userId: ''
+    }
+    const state = reactive<User>({ ...assets })
 
-  const clear = (notReset?: string[]) => {
-    useResetObject(state, assets, notReset)
-  }
+    const clear = (notReset?: string[]) => {
+      useResetObject(state, assets, notReset)
+    }
 
-  return {
-    ...toRefs(state),
-    clear
+    return {
+      ...toRefs(state),
+      clear
+    }
+  },
+  {
+    unistorage: true
   }
-},
-{
-  unistorage: true
-})
+)

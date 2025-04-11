@@ -1,11 +1,13 @@
-import { defineConfig } from 'vite'
-import uni from '@dcloudio/vite-plugin-uni'
 import path from 'path'
+
+import uni from '@dcloudio/vite-plugin-uni'
+import { defineConfig } from 'vite'
+import eslint from 'vite-plugin-eslint'
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => {
   const UnoCss = await import('unocss/vite').then(i => i.default)
-  const { default : AutoImport } = await import ('unplugin-auto-import/vite')
+  const { default: AutoImport } = await import('unplugin-auto-import/vite')
 
   return {
     plugins: [
@@ -17,7 +19,7 @@ export default defineConfig(async () => {
           'vue',
           'uni-app',
           {
-            'validing': [['default', 'validing']]
+            validing: [['default', 'validing']]
           },
           {
             '@/utils/uniProxy': [['default', 'upp']]
@@ -32,10 +34,11 @@ export default defineConfig(async () => {
         dts: 'src/types/auto-imports.d.ts',
         dirs: ['src/store', 'src/hooks', 'src/utils', 'src/api/**', 'src/enum'],
         eslintrc: {
-          enabled: true,
+          enabled: true
         },
-        vueTemplate: true,
-      })
+        vueTemplate: true
+      }),
+      eslint()
     ],
     resolve: {
       alias: {

@@ -1,5 +1,10 @@
-import compose from './compose'
+
+
+import type { ComposeNext, ComposeMiddleware } from './compose'
+
 import pinia from '@/store'
+
+import compose from './compose'
 
 interface IRequestOptions extends UniApp.RequestOptions {
   showLoading?: boolean
@@ -7,8 +12,8 @@ interface IRequestOptions extends UniApp.RequestOptions {
   format?: boolean
 }
 
-export type Next = (req: UniApp.RequestOptions) => Promise<any>
-export type Middleware = (next: Next) => (req: UniApp.RequestOptions) => Promise<any>
+export type Next = ComposeNext
+export type Middleware = ComposeMiddleware
 
 /** 请求的计时 */
 let timer: undefined | NodeJS.Timeout
@@ -49,7 +54,7 @@ class Http {
   private getHeader(): AnyObject {
     const header: AnyObject = {}
     const { accessToken } = storeToRefs(useUserStore(pinia))
-    accessToken.value && (header['Authorization'] = accessToken.value)
+    if (accessToken.value) header['Authorization'] = accessToken.value
 
     return header
   }

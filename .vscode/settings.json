@@ -1,0 +1,81 @@
+{
+  "easysass.compileAfterSave": false,
+  "explorer.confirmDelete": false,
+  "editor.tabSize": 2,
+  "files.associations": {
+    "*.cjson": "jsonc",
+    "*.wxss": "scss",
+    "*.less": "scss",
+    "*.css": "scss",
+    "*.wxs": "javascript",
+    "*.wxml": "wxml"
+  },
+  "emmet.includeLanguages": {
+    "wxml": "html",
+    "vue": "html",
+    "v-html": "html"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "minapp-vscode.disableAutoConfig": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "editor.detectIndentation": false,
+  "explorer.confirmDragAndDrop": false,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "tslint.jsEnable": true,
+  "typescript.suggest.completeFunctionCalls": true,
+  "search.followSymlinks": false,
+  "editor.renderWhitespace": "all",
+  "liveServer.settings.CustomBrowser": "chrome",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "files.autoSave": "off",
+  "git.confirmSync": false,
+  "gitlens.codeLens.scopes": ["document"],
+  "explorer.compactFolders": false,
+  "explorer.incrementalNaming": "smart",
+  "workbench.preferredHighContrastColorTheme": "Default Dark+",
+  "tslint.autoFixOnSave": false,
+  "html.format.wrapAttributes": "force-expand-multiline",
+  "git.suggestSmartCommit": false,
+  "eslint.validate": ["wxml", "js", "typescript", "json", "vue"],
+  "git.enableSmartCommit": true,
+  "css.lint.emptyRules": "ignore",
+  "editor.tokenColorCustomizations": {
+    "variables": {
+      "fontStyle": ""
+    }
+  },
+  "html.format.endWithNewline": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.formatOnSave": true,
+  "minapp-vscode.formatMaxLineCharacters": 160,
+  "minapp-vscode.wxmlFormatter": "prettier",
+  "minapp-vscode.prettier": {
+    "parser": "html"
+  },
+  "editor.formatOnSaveMode": "file",
+  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+  "css.validate": true,
+  "scss.validate": true,
+  "stylelint.validate": ["css", "less", "postcss", "scss"],
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[wxml]": {
+    "editor.defaultFormatter": "qiu8310.minapp-vscode"
+  },
+  "npm.exclude": "**/{dist,miniprogram,node_modules}/**",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "Codegeex.RepoIndex": true
+}

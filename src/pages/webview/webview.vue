@@ -10,7 +10,7 @@ onLoad(async options => {
     try {
       const src = await useValidateArgs<string>(options, 'url')
       url.value = decodeURIComponent(src)
-    } catch (error) {
+    } catch {
       navigateBack()
     }
   }

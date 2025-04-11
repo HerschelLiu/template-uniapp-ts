@@ -18,7 +18,7 @@ const menuButton = upp.getMenuButtonBoundingClientRect()
 /** 标题栏高度，含statusBarHeight，单位px */
 const titleBarHeight = Math.max(44, (menuButton.top - systemInfo.statusBarHeight!) * 2 + menuButton.height) + systemInfo.statusBarHeight!
 
-export function useStyleTop({ top } = { top: '0rpx' }): string {
+export function useStyleTop({ top } = { top: '0px' }): string {
   return useStyle({
     top: `calc(${top} + ${useUnit(titleBarHeight, 'px')})`
   })
@@ -27,8 +27,8 @@ export function useStyleTop({ top } = { top: '0rpx' }): string {
 export const useStylePadding = (options: IStylePadding = {}): string => {
   const { top, bottom, hasSafeArea, heightMode, hasPaddingTop } = Object.assign(
     {
-      top: '0rpx',
-      bottom: '0rpx',
+      top: '0px',
+      bottom: '0px',
       hasSafeArea: true,
       heightMode: 'minHeight',
       hasPaddingTop: true

@@ -4,18 +4,19 @@
  * @param {Function[]} funcs 中间件数组
  * @return {Function} (...args) => f1(f2(f3(...args)))
  */
-function compose(...funcs: Function[]) {
+
+// 定义更通用的类型，使用泛型来适应扩展的请求选项
+export type ComposeNext = (_: any) => Promise<any> | void
+export type ComposeMiddleware = (next: ComposeNext) => (_: any) => Promise<any> | void
+
+function compose(...funcs: ComposeMiddleware[]): ComposeMiddleware {
   if (funcs.length === 0) {
-    return <T>(arg: T) => arg
+    return next => req => next(req)
   }
   if (funcs.length === 1) {
     return funcs[0]
   }
-  return funcs.reduce(
-    (a, b) =>
-      (...args: any) =>
-        a(b(...args))
-  )
+  return funcs.reduce((a, b) => next => a(b(next)))
 }
 
 export default compose

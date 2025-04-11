@@ -11,7 +11,7 @@
     "verbatimModuleSyntax": true
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "exclude": ["node_modules", "dist", "src/components/qf-image-cropper"],
+  "exclude": ["node_modules", "dist"],
   "vueCompilerOptions": {
     "plugins": ["@uni-helper/uni-types/volar-plugin"]
   }

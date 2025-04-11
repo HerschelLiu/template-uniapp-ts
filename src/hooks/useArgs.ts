@@ -27,7 +27,7 @@ export function useArgsStrToObj(url: string) {
     const [key, value] = item.split('=')
     obj[key] = decodeURIComponent(value)
   })
-  
+
   return obj
 }
 

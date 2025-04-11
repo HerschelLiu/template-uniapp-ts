@@ -42,7 +42,6 @@ declare global {
   const isReadonly: typeof import('vue')['isReadonly']
   const isRef: typeof import('vue')['isRef']
   const isTabBar: typeof import('../hooks/useRouter')['isTabBar']
-  const jumpPage: typeof import('../hooks/useRouter')['jumpPage']
   const login: typeof import('../api/modules/system/index')['login']
   const logout: typeof import('../api/modules/system/index')['logout']
   const mapActions: typeof import('pinia')['mapActions']
@@ -124,6 +123,7 @@ declare global {
   const useArgsStrToObj: typeof import('../hooks/useArgs')['useArgsStrToObj']
   const useArgsUrl: typeof import('../hooks/useArgs')['useArgsUrl']
   const useAttrs: typeof import('vue')['useAttrs']
+  const useBeforeList: typeof import('../hooks/useList')['useBeforeList']
   const useClone: typeof import('../hooks/useObject')['useClone']
   const useCosImage: typeof import('../hooks/useSetting')['useCosImage']
   const useCssModule: typeof import('vue')['useCssModule']
@@ -178,11 +178,14 @@ declare global {
 // for type re-export
 declare global {
   // @ts-ignore
-  export type { Component, ComponentPublicInstance, ComputedRef, DirectiveBinding, ExtractDefaultPropTypes, ExtractPropTypes, ExtractPublicPropTypes, InjectionKey, PropType, Ref, MaybeRef, MaybeRefOrGetter, VNode, WritableComputedRef } from 'vue'
+  export type { Component, Slot, Slots, ComponentPublicInstance, ComputedRef, DirectiveBinding, ExtractDefaultPropTypes, ExtractPropTypes, ExtractPublicPropTypes, InjectionKey, PropType, Ref, MaybeRef, MaybeRefOrGetter, VNode, WritableComputedRef } from 'vue'
   import('vue')
   // @ts-ignore
   export type { IStylePadding } from '../hooks/useStyle'
   import('../hooks/useStyle')
+  // @ts-ignore
+  export type { ComposeNext, ComposeMiddleware } from '../api/http/compose'
+  import('../api/http/compose')
   // @ts-ignore
   export type { Next, Middleware } from '../api/http/index'
   import('../api/http/index')
@@ -319,6 +322,7 @@ declare module 'vue' {
     readonly useArgsStrToObj: UnwrapRef<typeof import('../hooks/useArgs')['useArgsStrToObj']>
     readonly useArgsUrl: UnwrapRef<typeof import('../hooks/useArgs')['useArgsUrl']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
+    readonly useBeforeList: UnwrapRef<typeof import('../hooks/useList')['useBeforeList']>
     readonly useClone: UnwrapRef<typeof import('../hooks/useObject')['useClone']>
     readonly useCosImage: UnwrapRef<typeof import('../hooks/useSetting')['useCosImage']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>

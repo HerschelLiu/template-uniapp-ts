@@ -1,12 +1,14 @@
 import type { Middleware } from '@/api/http'
+
+import { storeToRefs } from 'pinia'
+
+
 import Http from '@/api/http'
 import { ServerId } from '@/enum/settings'
 import { useLog } from '@/hooks/useLog'
 import settings from '@/settings'
-
 import pinia from '@/store'
 import { useSettingsStore } from '@/store/useSetting'
-import { storeToRefs } from 'pinia'
 
 const initRequest: Middleware = next => async req => {
   const { request, serverId: serverIdStore } = storeToRefs(useSettingsStore(pinia))
@@ -23,7 +25,8 @@ const initRequest: Middleware = next => async req => {
     })
 
     Object.assign(request.value, data)
-  } catch (error) {
+  } catch {
+    // 错误回退到默认值
     Object.assign(request.value, {
       url: 'https://api.hmkf688.com',
       env: 'pro'

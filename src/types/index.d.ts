@@ -15,7 +15,7 @@ interface AxiosError {
   msg: string
 }
 
-type IUniPage = Page.PageInstance<AnyObject, {}>
+type IUniPage = Page.PageInstance<AnyObject, object>
 
 /** 列表请求参数基础数据 */
 declare interface ListBaseQuery {
@@ -45,7 +45,7 @@ interface List<Q = null, R = object> {
   /** 总页数 */
   pageCount: number
   /** 是否还有数据未加载 */
-  haveMore: Boolean
+  haveMore: boolean
 }
 
 interface Tabs {
@@ -85,3 +85,6 @@ type Words =
 
 /** 限定首字母大写 */
 type Cap = `${Capitalize<Words>}${string}`
+
+declare type AsyncPromiseFunction<T> = (...args: unknown[]) => Promise<T>
+declare type AsyncVoidFunction = (...args: unknown[]) => void

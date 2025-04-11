@@ -52,7 +52,7 @@ const value = defineModel<string | number>({ required: true })
 
 const InputRef = ref()
 
-const handleFormatter = (val: string | number) => {
+const handleFormatter = (_: string | number) => {
   let func: (val: string, decimalPlaces?: number) => string = useNumberFormat
   switch (props.formatType) {
     case 'number':
@@ -67,7 +67,7 @@ const handleFormatter = (val: string | number) => {
       break
   }
 
-  return func(val.toString(), props.digitNum)
+  return func(_.toString(), props.digitNum)
 }
 
 watch(

@@ -1,7 +1,7 @@
 <template></template>
 
 <script lang="ts" setup>
-const props = defineProps({})
+// 如果需要props，可以在这里定义
 </script>
 
 <style lang="scss" scoped></style>

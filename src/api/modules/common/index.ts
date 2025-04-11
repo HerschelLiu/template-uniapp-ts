@@ -1,4 +1,4 @@
-import api from "@/api"
+import api from '@/api'
 
 /** 获取关于我们信息 */
 export const getAgreement = async (): ResponsePromise<ResponseAgreement> => {

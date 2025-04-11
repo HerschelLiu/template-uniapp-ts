@@ -1,4 +1,3 @@
-
 import type { ResponseAgreement } from '@/api/modules/common'
 
 interface SettingsState {

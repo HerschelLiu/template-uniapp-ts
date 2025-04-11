@@ -23,7 +23,9 @@ export function isTabBar(url?: string | string.PageURIString): boolean {
   if (!url && getThePage()) url = getThePage().route
   if (!url) return false
   url = url.split('?')[0]
-  url.startsWith('/') && (url = url.substring(1))
+  if (url.startsWith('/')) {
+    url = url.substring(1)
+  }
 
   return settings.tabbar.findIndex(item => item.pagePath.includes(url as string)) > -1
 }
@@ -47,8 +49,9 @@ export function navigateBack(options?: UniApp.NavigateBackOptions, url?: string)
     const Pages = getCurrentPagesList()
     if (url) {
       // 返回指定页
-      if (url.startsWith('/')) url = url.substring(1, url.length)
-      const index = Pages.findIndex(item => item.route === url)
+      let urlPath = url
+      if (urlPath.startsWith('/')) urlPath = urlPath.substring(1, urlPath.length)
+      const index = Pages.findIndex(item => item.route === urlPath)
       if (index > -1) {
         options = {
           delta: Pages.length - index - 1
@@ -100,8 +103,4 @@ export function redirectTo(options: UniApp.RedirectToOptions) {
     return
   }
   upp.redirectTo(options)
-}
-
-interface JumpPageOptions {
-  target: string
 }

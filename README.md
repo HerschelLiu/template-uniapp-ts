@@ -9,3 +9,4 @@ npm install --legacy-peer-deps
 npx @dcloudio/uvm@latest
 ```
 
+使用了`unplugin-auto-import`自动导入插件，无需手动import

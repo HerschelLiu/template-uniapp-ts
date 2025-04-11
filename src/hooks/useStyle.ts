@@ -46,10 +46,7 @@ export function useStylePadding(options: IStylePadding = {}) {
     [`${heightMode}`]: [`calc(100vh - ${top} - ${bottom})`]
       .concat(
         hasSafeArea
-          ? [
-              `calc(100vh - ${top} - ${bottom} - constant(safe-area-inset-bottom))`,
-              `calc(100vh - ${top} - ${bottom} - env(safe-area-inset-bottom))`
-            ]
+          ? [`calc(100vh - ${top} - ${bottom} - constant(safe-area-inset-bottom))`, `calc(100vh - ${top} - ${bottom} - env(safe-area-inset-bottom))`]
           : []
       )
       .join(`; ${heightMode}: `)

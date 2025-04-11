@@ -10,10 +10,10 @@
     <!--标题 end -->
 
     <!--返回按钮 start -->
-    <view v-if="showBackButton && canBack" class="button" :style="buttonStyle" @click="handleBack">
+    <view v-if="!isTabBar() && showBackButton && canBack" class="button" :style="buttonStyle" @click="handleBack">
       <up-icon name="arrow-left" :color="backBtnColor" size="24" />
     </view>
-    <view v-else-if="showBackButton && !canBack" class="button" :style="buttonStyle" @click="handleBackHome">
+    <view v-else-if="!isTabBar() && showBackButton && !canBack" class="button" :style="buttonStyle" @click="handleBackHome">
       <up-icon name="home-fill" :color="backBtnColor" size="24" />
     </view>
     <!--返回按钮 end -->
@@ -81,7 +81,8 @@ const buttonStyle = computed(() => {
   return useStyle({
     width: useUnit(menuButton.height, 'px'),
     height: useUnit(menuButton.height, 'px'),
-    top: useUnit(menuButton.top, 'px')
+    top: menuButton.top ? useUnit(menuButton.top, 'px') : '50%',
+    transform: `translateY(${menuButton.top ? 0 : '-50%'})`
   })
 })
 

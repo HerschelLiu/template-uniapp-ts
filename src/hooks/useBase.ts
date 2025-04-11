@@ -13,7 +13,7 @@ export function useAppShow() {
 export const useEnterOptions = () => {
   const options = upp.getEnterOptionsSync()
   const { scene, enterOptions } = storeToRefs(useSettingsStore(pinia))
-  const query = options.query
+  const query = options?.query ?? {}
 
   if (query?.scene) {
     const _query = useArgsStrToObj(decodeURIComponent(query.scene))
@@ -21,7 +21,7 @@ export const useEnterOptions = () => {
   }
 
   enterOptions.value = query
-  scene.value = options.scene
+  scene.value = options?.scene ?? ''
 
   useLog(`当前场景值`, `${scene.value}`)
   useLog(`当前启动参数`, `${JSON.stringify(enterOptions.value)}`)

@@ -7,7 +7,7 @@ function useSetStorageSync(key: string, data: any) {
 
 /** 取值缓存-中间件 */
 function useGetStorageSync(key: string): any {
-  let data = upp.getStorageSync(`${storagePrefix}${key}`) || ''
+  const data = upp.getStorageSync(`${storagePrefix}${key}`) || ''
   return data || 'null'
 }
 

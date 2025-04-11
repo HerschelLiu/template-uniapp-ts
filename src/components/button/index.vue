@@ -56,7 +56,7 @@ const emits = defineEmits(['click', 'getphonenumber'])
 const className = computed(() => {
   const names = ['component-button']
   names.push(`component-button-${props.styleName}`)
-  props.hollow && names.push('component-button-hollow')
+  if (props.hollow) names.push('component-button-hollow')
 
   return names
 })

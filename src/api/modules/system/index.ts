@@ -1,4 +1,4 @@
-import api from "@/api"
+import api from '@/api'
 
 /** 注册 */
 export const register = (data: RequestRegister): ResponsePromise<ResponseRegister> => {
