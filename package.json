@@ -66,6 +66,7 @@
     "@dcloudio/uni-stacktracey": "3.0.0-4050720250324001",
     "@dcloudio/vite-plugin-uni": "3.0.0-4050720250324001",
     "@eslint/js": "^9.24.0",
+    "@types/eslint": "^9.6.1",
     "@types/node": "^22.13.10",
     "@uni-helper/uni-types": "^1.0.0-alpha.6",
     "@vue/runtime-core": "3.5.13",
