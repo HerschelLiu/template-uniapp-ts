@@ -31,10 +31,15 @@ export function useInitList<Q, R>(list: List<Q, R>) {
 
 /** 请求前处理 */
 export function useBeforeList<Q, R>(list: List<Q, R>) {
-  if (list.loading || !list.haveMore) return list
+  if (list.loading || !list.haveMore) {
+    if (!list.haveMore) {
+      useShowToast({ title: '没有更多数据了' })
+    }
+    return Promise.reject()
+  }
   list.loading = true
 
-  return list
+  return Promise.resolve()
 }
 
 export function useAfterList<Q, R>(list: List<Q, R>, res: Record<string, unknown>, target = 'records') {
