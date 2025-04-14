@@ -31,7 +31,7 @@ export default defineConfig(async () => {
             '@/store': [['default', 'pinia']]
           }
         ],
-        dts: 'src/types/auto-imports.d.ts',
+        dts: 'types/auto-imports.d.ts',
         dirs: ['src/store', 'src/hooks', 'src/utils', 'src/api/**', 'src/enum'],
         eslintrc: {
           enabled: true
