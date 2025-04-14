@@ -9,4 +9,12 @@ npm install --legacy-peer-deps
 npx @dcloudio/uvm@latest
 ```
 
+```bash
+# 上传微信小程序
+npm run uploadToMP:dev --m="备注"
+
+npm run uploadToMP:prod --m="备注" --version=版本号
+```
+
+
 使用了`unplugin-auto-import`自动导入插件，无需手动import

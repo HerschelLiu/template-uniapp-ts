@@ -51,6 +51,8 @@
     "@dcloudio/uni-mp-weixin": "3.0.0-4050720250324001",
     "@dcloudio/uni-mp-xhs": "3.0.0-4050720250324001",
     "@dcloudio/uni-quickapp-webview": "3.0.0-4050720250324001",
+    "fs-plus": "^3.1.1",
+    "miniprogram-ci": "^2.0.10",
     "nutui-uniapp": "^1.8.3",
     "pinia": "^2.3.1",
     "pinia-plugin-unistorage": "^0.1.2",

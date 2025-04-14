@@ -23,7 +23,7 @@ try {
 export default [
   // 基础配置
   {
-    ignores: ['dist', 'src/static', 'node_modules', 'index.html']
+    ignores: ['dist', 'src/static', 'node_modules', 'index.html', 'scripts']
   },
 
   // JS相关配置
