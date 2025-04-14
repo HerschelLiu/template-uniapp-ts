@@ -1,13 +1,13 @@
 import path from 'path'
 
 import uni from '@dcloudio/vite-plugin-uni'
+import AutoImport from 'unplugin-auto-import/vite'
 import { defineConfig } from 'vite'
 import eslint from 'vite-plugin-eslint'
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => {
   const UnoCss = await import('unocss/vite').then(i => i.default)
-  const { default: AutoImport } = await import('unplugin-auto-import/vite')
 
   return {
     plugins: [
