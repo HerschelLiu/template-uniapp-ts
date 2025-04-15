@@ -44,10 +44,11 @@ export function useBeforeList<Q, R>(list: List<Q, R>) {
 }
 
 /** 请求后处理 */
-export function useAfterList<Q, R>(list: List<Q, R>, res: any, target = 'records') {
+export function useAfterList<Q, R>(list: List<Q, R>, res: any, target = 'items') {
   if (res.data === null) res.data = []
   list.total = typeof res.total === 'number' ? res.total : res[target].length || 0
-  list.items = list.items.concat(res[target] || res || [])
+  const newArr = res[target] || res || []
+  list.items = list.query.pageNum === 1 ? newArr : list.items.concat(newArr)
   list.pageCount = list.query && list.query.pageSize ? (list.total === 0 ? 0 : Math.ceil(list.total / list.query.pageSize)) : 0
   list.loading = false
   if (list.total === 0) {
