@@ -10,7 +10,7 @@
     "types": ["@dcloudio/types", "@uni-helper/uni-types", "@types/node", "uview-plus/types"],
     "verbatimModuleSyntax": true
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "types"],
   "exclude": ["node_modules", "dist", "scripts"],
   "vueCompilerOptions": {
     "plugins": ["@uni-helper/uni-types/volar-plugin"]
