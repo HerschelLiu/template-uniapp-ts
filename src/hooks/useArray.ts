@@ -70,3 +70,36 @@ export function useFindNodeWithAncestors<T extends object>(
   }
   return { node: null, ancestors: [] }
 }
+
+/** 数组排序 */
+export function useSort<T extends Record<K, Key>, K extends keyof T>(originalArray: T[], fieldKey: K, sortOrder?: T[K][]): T[] {
+  // 创建数组副本避免修改原数组
+  const sortedArray = [...originalArray]
+
+  // 当有自定义排序顺序时
+  if (sortOrder && sortOrder.length) {
+    const orderMap = new Map(sortOrder.map((value, index) => [value, index]))
+    return sortedArray.sort((a, b) => {
+      const aIndex = orderMap.get(a[fieldKey]) ?? Infinity
+      const bIndex = orderMap.get(b[fieldKey]) ?? Infinity
+      return aIndex - bIndex
+    })
+  }
+
+  // 自然排序逻辑（数字优先 -> 字符串）
+  return sortedArray.sort((a, b) => {
+    const aVal = a[fieldKey]
+    const bVal = b[fieldKey]
+
+    // 处理数字类型比较
+    if (typeof aVal === 'number' && typeof bVal === 'number') {
+      return aVal - bVal
+    }
+
+    // 处理混合类型和字符串类型比较
+    return String(aVal).localeCompare(String(bVal), undefined, {
+      numeric: true,
+      sensitivity: 'variant'
+    })
+  })
+}

@@ -1,3 +1,9 @@
+import { storeToRefs } from 'pinia'
+
+import settings from '@/settings'
+import pinia from '@/store'
+import { useSettingsStore } from '@/store/useSetting'
+
 /** 获取页面栈，解决直播的页面栈为null */
 export function getCurrentPagesList(): IUniPage[] {
   return getCurrentPages().filter(item => Boolean(item))
@@ -49,9 +55,8 @@ export function navigateBack(options?: UniApp.NavigateBackOptions, url?: string)
     const Pages = getCurrentPagesList()
     if (url) {
       // 返回指定页
-      let urlPath = url
-      if (urlPath.startsWith('/')) urlPath = urlPath.substring(1, urlPath.length)
-      const index = Pages.findIndex(item => item.route === urlPath)
+      if (url.startsWith('/')) url = url.substring(1, url.length)
+      const index = Pages.findIndex(item => item.route === url)
       if (index > -1) {
         options = {
           delta: Pages.length - index - 1
@@ -76,7 +81,7 @@ export function navigateBack(options?: UniApp.NavigateBackOptions, url?: string)
       return
     }
   }
-  upp.navigateBack(options)
+  uni.navigateBack(options)
 }
 
 /** 保留当前页面，跳转到应用内的某个页面 */
@@ -85,14 +90,14 @@ export function navigateTo(options: UniApp.NavigateToOptions & UniApp.SwitchTabO
 
   if (isTabBar(options.url)) {
     options.url = options.url.split('?')[0]
-    upp.switchTab(options)
-  } else upp.navigateTo(options)
+    uni.switchTab(options)
+  } else uni.navigateTo(options)
 }
 
 /** 关闭所有页面，打开到应用内的某个页面 */
 export function reLaunch(options: UniApp.ReLaunchOptions) {
   options.url = getRightUrl(options.url)
-  upp.reLaunch(options)
+  uni.reLaunch(options)
 }
 
 /** 关闭当前页面，跳转到应用内的某个页面。但是不允许跳转到 tabbar 页面。 */
@@ -102,5 +107,18 @@ export function redirectTo(options: UniApp.RedirectToOptions) {
     reLaunch(options)
     return
   }
-  upp.redirectTo(options)
+  uni.redirectTo(options)
+}
+
+interface JumpPageOptions {
+  target: string
+}
+export function jumpPage(data: JumpPageOptions) {
+  const { protocol } = storeToRefs(useSettingsStore(pinia))
+  /** 隐私政策 */
+  if (data.target === 'privacy' && protocol.value.privacyAgreement) {
+    navigateTo({
+      url: `/pages/webview/index?url=${encodeURIComponent(protocol.value.privacyAgreement)}`
+    })
+  }
 }

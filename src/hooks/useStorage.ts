@@ -1,13 +1,15 @@
+import settings from '@/settings'
+
 const { storagePrefix } = settings
 
 /** 存储缓存-中间件 */
 function useSetStorageSync(key: string, data: any) {
-  upp.setStorageSync(`${storagePrefix}${key}`, data)
+  uni.setStorageSync(`${storagePrefix}${key}`, data)
 }
 
 /** 取值缓存-中间件 */
 function useGetStorageSync(key: string): any {
-  const data = upp.getStorageSync(`${storagePrefix}${key}`) || ''
+  const data = uni.getStorageSync(`${storagePrefix}${key}`) || ''
   return data || 'null'
 }
 

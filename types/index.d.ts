@@ -17,6 +17,8 @@ interface AxiosError {
 
 type IUniPage = Page.PageInstance<AnyObject, object>
 
+declare type Key = string | number
+
 /** 列表请求参数基础数据 */
 declare interface ListBaseQuery {
   /** 当前页码 */

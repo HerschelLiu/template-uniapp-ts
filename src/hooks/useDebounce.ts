@@ -1,8 +1,7 @@
 /** 防抖 */
-type GenericFunction = (..._: unknown[]) => unknown
-const debounceMap = new Map<GenericFunction, NodeJS.Timeout>()
+const debounceMap = new Map<AsyncVoidFunction, NodeJS.Timeout>()
 
-export function useDebounce(func: GenericFunction, wait = 1000, immediate = false): void {
+export function useDebounce(func: AsyncVoidFunction, wait = 1000, immediate = false) {
   const timeout = debounceMap.get(func)
   if (timeout) {
     clearTimeout(timeout)
@@ -23,9 +22,9 @@ export function useDebounce(func: GenericFunction, wait = 1000, immediate = fals
 }
 
 /** 节流 */
-const throttleMap = new Map<GenericFunction, boolean>()
+const throttleMap = new Map<AsyncVoidFunction, boolean>()
 
-export function useThrottle(func: GenericFunction, wait = 1000): void {
+export function useThrottle(func: AsyncVoidFunction, wait = 1000) {
   if (!throttleMap.get(func)) {
     func()
     throttleMap.set(func, true)

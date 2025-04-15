@@ -1,3 +1,5 @@
+import { reactive } from 'vue'
+
 /** 定义列表数据 */
 export function useList<Q = null, R = object>(otherQuery: Partial<Q>) {
   const list = reactive<List<Q, R>>({
@@ -16,12 +18,11 @@ export function useList<Q = null, R = object>(otherQuery: Partial<Q>) {
   return list
 }
 
-export function useInitList<Q, R>(list: List<Q, R>) {
-  list.items = []
+/** 初始化列表 */
+export function useInitList<Q, R>(list: List<Q, R>, isPart = false) {
+  if (!isPart) list.items = []
   list.total = 0
-  if (list.query) {
-    list.query.pageNum = 1
-  }
+  if (list.query) list.query.pageNum = 1
   list.pageCount = 0
   list.loading = false
   list.haveMore = true
@@ -42,10 +43,11 @@ export function useBeforeList<Q, R>(list: List<Q, R>) {
   return Promise.resolve()
 }
 
-export function useAfterList<Q, R>(list: List<Q, R>, res: Record<string, unknown>, target = 'records') {
+/** 请求后处理 */
+export function useAfterList<Q, R>(list: List<Q, R>, res: any, target = 'records') {
   if (res.data === null) res.data = []
-  list.total = typeof res.total === 'number' ? res.total : (res[target] as unknown[])?.length || 0
-  list.items = list.items.concat((res[target] as R[]) || res || [])
+  list.total = typeof res.total === 'number' ? res.total : res[target].length || 0
+  list.items = list.items.concat(res[target] || res || [])
   list.pageCount = list.query && list.query.pageSize ? (list.total === 0 ? 0 : Math.ceil(list.total / list.query.pageSize)) : 0
   list.loading = false
   if (list.total === 0) {

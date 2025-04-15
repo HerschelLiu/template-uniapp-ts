@@ -1,3 +1,5 @@
+import { useLineString } from './useString'
+
 /** 组合样式 */
 export function useStyle(obj: Partial<CSSStyleDeclaration>) {
   const array: string[] = []

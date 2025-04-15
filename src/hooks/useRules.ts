@@ -1,3 +1,7 @@
+import validing from 'validing'
+import { reactive } from 'vue'
+
+
 interface RulesOptions {
   key: string
   type?: 'text' | 'upload' | 'checked'

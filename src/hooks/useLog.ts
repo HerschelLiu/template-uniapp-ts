@@ -1,8 +1,10 @@
-let isDevTools = false
+import { storeToRefs } from 'pinia'
 
-// #ifdef MP
-isDevTools = upp.getSystemInfoSync().platform === 'devtools'
-// #endif
+import settings from '@/settings'
+import pinia from '@/store'
+import { useSettingsStore } from '@/store/useSetting'
+
+const isDevTools = uni.getSystemInfoSync().platform === 'devtools'
 
 /** 打印，生产环境时会将日志推送至小程序后台 */
 export function useLog(title: string, info: string) {

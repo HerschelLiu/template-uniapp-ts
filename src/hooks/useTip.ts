@@ -1,8 +1,10 @@
+import { useStorage } from './useStorage'
+
 /** 显示loading提示框 */
 export function useHideLoading() {
   if (!(useStorage.showLoading || false)) return
   useStorage.showLoading = false
-  upp.hideLoading()
+  uni.hideLoading()
 }
 
 /** 显示loading提示框 */
@@ -15,11 +17,11 @@ export function useShowLoading(options: UniApp.ShowLoadingOptions) {
   )
   if (useStorage.showLoading || false) {
     useStorage.showLoading = true
-    upp.showLoading(opt)
+    uni.showLoading(opt)
     return
   }
   useStorage.showLoading = true
-  upp.showLoading(opt)
+  uni.showLoading(opt)
 }
 
 /** 显示消息提示框 */
@@ -33,13 +35,18 @@ export function useShowToast(options: UniApp.ShowToastOptions) {
   )
   if (useStorage.showLoading || false) {
     useHideLoading()
-    upp.showToast(opt)
+    uni.showToast(opt)
     return
   }
-  upp.showToast(opt)
+  uni.showToast(opt)
 }
 
 /** 隐藏消息提示框 */
 export function useHideToast() {
-  upp.hideToast()
+  uni.hideToast()
+}
+
+/** 显示模态对话框 */
+export function useShowModal(options: UniApp.ShowModalOptions) {
+  uni.showModal(options)
 }

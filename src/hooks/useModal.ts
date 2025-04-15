@@ -1,3 +1,5 @@
+import { reactive, ref } from 'vue'
+
 type ModalName = `show${Cap}`
 
 interface ModalList {

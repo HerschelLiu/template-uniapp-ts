@@ -13,7 +13,6 @@
 </template>
 
 <script lang="ts" setup>
-
 interface Props {
   mode: UniHelper.ImageMode
   src: string
@@ -29,7 +28,7 @@ const props = withDefaults(defineProps<Props>(), {
   lazyLoad: true,
   showMenuByLongpress: false,
   borderRadius: '0',
-  cos: true
+  cos: false
 })
 
 const emit = defineEmits(['click'])

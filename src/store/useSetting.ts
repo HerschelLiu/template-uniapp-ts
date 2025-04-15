@@ -20,7 +20,8 @@ interface SettingsStateRequest {
 }
 
 const getServerId = (id?: ServerId) => {
-  const env = upp.getAccountInfoSync().miniProgram.envVersion
+  const env = uni.getAccountInfoSync().miniProgram.envVersion
+  if (env === 'release') return ServerId['正式']
   return env === 'develop' && isHaveValue(id) ? id! : MiniProgramEnvVersion[env]
 }
 

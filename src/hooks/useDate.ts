@@ -1,3 +1,5 @@
+import { isDate } from './useValidate'
+
 /** 获取日期格式 */
 export function useDateFormat(date: string | undefined | Date | number | null, format = 'Y-M-D h:m:s'): string {
   if (typeof date === 'string') {

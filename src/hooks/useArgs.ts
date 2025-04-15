@@ -1,14 +1,17 @@
+import { useShowToast } from './useTip'
+import { isHaveValue } from './useValidate'
+
 /**
  * 验证参数是否存在
  * @param args 参数名
  * @param required 是否必填，默认[是]
  * @returns 参数值
  */
-export function useValidateArgs<T>(options: AnyObject, args: string, required = true): Promise<T | string> {
+export function useValidateArgs<T>(options: AnyObject | undefined, args: string, required = true): Promise<T | string> {
   return new Promise((resolve, reject) => {
-    const arg = options[args]
-    if (arg && isHaveValue(arg)) return resolve(arg)
-    if (required) {
+    if (isHaveValue(options) && required) {
+      useShowToast({ title: '页面缺少必要参数', mask: true })
+
       return reject({
         loading: false,
         fail: true,
@@ -16,7 +19,11 @@ export function useValidateArgs<T>(options: AnyObject, args: string, required = 
         failButtonContent: '返回',
         failRouterBack: true
       })
-    } else return resolve('')
+    } else {
+      const arg = options![args]
+      if (arg && isHaveValue(arg)) return resolve(arg)
+      return resolve('')
+    }
   })
 }
 

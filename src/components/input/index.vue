@@ -14,10 +14,19 @@
     :maxlength="maxlength"
     :readonly="readonly"
     :disabled="disabled"
-  />
+    class="block w-full"
+  >
+    <template #suffix>
+      <slot name="suffix" />
+    </template>
+  </up-input>
 </template>
 
 <script lang="ts" setup>
+import { ref, watch } from 'vue'
+
+import { useInputDigitFormat, useInputMoneyFormat, useInputNumberFormat } from '@/hooks/useValidate'
+
 interface Props {
   type?: 'number' | 'text' | 'idcard' | 'digit' | 'password' | 'nickname'
   placeholder?: string
@@ -31,7 +40,7 @@ interface Props {
   digitNum?: number
   fontSize?: string
   color?: string
-  maxlength?: number | string
+  maxlength?: Key
   readonly?: boolean
   disabled?: boolean
 }
@@ -52,28 +61,28 @@ const value = defineModel<string | number>({ required: true })
 
 const InputRef = ref()
 
-const handleFormatter = (_: string | number) => {
-  let func: (val: string, decimalPlaces?: number) => string = useNumberFormat
+const handleFormatter = (val: string | number) => {
+  let func: (val: string, decimalPlaces?: number) => string = useInputNumberFormat
   switch (props.formatType) {
     case 'number':
     default:
-      func = useNumberFormat
+      func = useInputNumberFormat
       break
     case 'money':
-      func = useMoneyFormat
+      func = useInputMoneyFormat
       break
     case 'digit':
-      func = useDigitFormat
+      func = useInputDigitFormat
       break
   }
 
-  return func(_.toString(), props.digitNum)
+  return func(val.toString(), props.digitNum)
 }
 
 watch(
   () => [props.type, InputRef.value],
   () => {
-    if (props.type === 'number' && props.format) {
+    if ((props.type === 'number' || props.type === 'digit') && props.format) {
       InputRef.value?.setFormatter(handleFormatter)
     }
   },
