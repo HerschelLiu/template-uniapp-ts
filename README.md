@@ -16,5 +16,7 @@ npm run uploadToMP:dev -- --msg="备注"
 npm run uploadToMP:prod -- --msg="备注" --version=版本号
 ```
 
+查看详细构建报告： `npx vite-bundle-visualizer`
+
 
 使用了`unplugin-auto-import`自动导入插件，无需手动import

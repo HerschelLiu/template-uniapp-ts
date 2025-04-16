@@ -6,7 +6,7 @@ import { defineConfig } from 'vite'
 import eslint from 'vite-plugin-eslint'
 
 // https://vitejs.dev/config/
-export default defineConfig(async () => {
+export default defineConfig(async (): Promise<import('vite').UserConfig> => {
   const UnoCss = await import('unocss/vite').then(i => i.default)
 
   return {
@@ -40,6 +40,25 @@ export default defineConfig(async () => {
       }),
       eslint()
     ],
+    build: {
+      sourcemap: false,
+      minify: 'esbuild',
+      cssTarget: 'chrome61',
+      rollupOptions: {
+        cache: true
+      }
+    },
+    optimizeDeps: {
+      include: ['vue', 'pinia', '@dcloudio/uni-app'],
+      exclude: ['vue-demi'],
+      needsInterop: undefined
+    },
+    server: {
+      watch: {
+        usePolling: false,
+        interval: 500
+      }
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src')
