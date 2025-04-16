@@ -1,5 +1,8 @@
+**应用模板**
 ```bash
-npm install --legacy-peer-deps
+npx degit HerschelLiu/template-uniapp-ts#HEAD project
+```bash
+npm install
 ```
 
 更新依赖到指定版本
