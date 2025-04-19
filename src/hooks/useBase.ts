@@ -9,7 +9,7 @@ import { useShowModal } from './useTip'
 
 /** 冷启动-核心处理 */
 export async function useAppLaunch() {
-  readAgreement()
+  useLog('冷启动', '')
 }
 
 /** 热启动-核心处理 */
