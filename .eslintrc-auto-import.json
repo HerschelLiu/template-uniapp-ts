@@ -192,6 +192,27 @@
     "register": true,
     "setActivePinia": true,
     "setMapStoreSuffix": true,
-    "storeToRefs": true
+    "storeToRefs": true,
+    "EnumArray": true,
+    "handleLoginJump": true,
+    "jumpPage": true,
+    "readAgreement": true,
+    "readBrand": true,
+    "useAdd": true,
+    "useDivide": true,
+    "useEnterAnimation": true,
+    "useEnumArray": true,
+    "useEnumValue": true,
+    "useFormatMoney": true,
+    "useInputDigitFormat": true,
+    "useInputMoneyFormat": true,
+    "useInputNumberFormat": true,
+    "useLeaveAnimation": true,
+    "useMulti": true,
+    "useShowModal": true,
+    "useSleep": true,
+    "useSort": true,
+    "useSub": true,
+    "useSubscribe": true
   }
 }
