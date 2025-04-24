@@ -53,12 +53,6 @@ export default defineConfig(async (): Promise<import('vite').UserConfig> => {
       exclude: ['vue-demi'],
       needsInterop: undefined
     },
-    server: {
-      watch: {
-        usePolling: false,
-        interval: 500
-      }
-    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src')
