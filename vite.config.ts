@@ -48,11 +48,6 @@ export default defineConfig(async (): Promise<import('vite').UserConfig> => {
         cache: true
       }
     },
-    optimizeDeps: {
-      include: ['vue', 'pinia', '@dcloudio/uni-app'],
-      exclude: ['vue-demi'],
-      needsInterop: undefined
-    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src')
