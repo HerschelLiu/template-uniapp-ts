@@ -35,7 +35,8 @@ export default [
   {
     languageOptions: {
       globals: {
-        ...autoImportGlobals
+        ...autoImportGlobals,
+        console: 'readonly'
       }
     },
     rules: {
