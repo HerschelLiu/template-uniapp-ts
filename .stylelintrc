@@ -1,0 +1,252 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-recommended-scss",
+    "stylelint-config-recommended-vue"
+  ],
+  "plugins": [
+    "stylelint-order",
+    "stylelint-scss"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "**/*.scss"
+      ],
+      "customSyntax": "postcss-scss"
+    },
+    {
+      "files": [
+        "**/*.vue"
+      ],
+      "customSyntax": "postcss-html"
+    }
+  ],
+  "rules": {
+    "selector-class-pattern": null,
+
+    "scss/dollar-variable-pattern": null,
+
+    "scss/double-slash-comment-whitespace-inside": null,
+
+    "at-rule-no-unknown": null,
+
+    "scss/at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "mixin",
+          "include",
+          "extend",
+          "import",
+          "if",
+          "else",
+          "apply",
+          "tailwind",
+          "layer",
+          "screen",
+          "use",
+          "forward",
+          "function",
+          "return",
+          "each",
+          "for",
+          "while"
+        ]
+      }
+    ],
+
+    "no-descending-specificity": null,
+
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": [
+          "deep",
+          "global",
+          "v-deep",
+          "v-global",
+          "v-slotted",
+          "export"
+        ]
+      }
+    ],
+
+    "function-no-unknown": [
+      true,
+      {
+        "ignoreFunctions": [
+          "constant",
+          "env",
+          "v-bind",
+          "theme",
+          "scale-color",
+          "transparentize",
+          "fade",
+          "rgba",
+          "hsla",
+          "color-mix",
+          "color.adjust",
+          "color.scale",
+          "color.change",
+          "color.invert",
+          "color.complement",
+          "color.mix",
+          "color.red",
+          "color.green",
+          "color.blue",
+          "color.hue",
+          "color.saturation",
+          "color.lightness",
+          "color.alpha"
+        ]
+      }
+    ],
+
+    "unit-no-unknown": [
+      true,
+      {
+        "ignoreUnits": [
+          "rpx",
+          "vw",
+          "vh",
+          "vmin",
+          "vmax"
+        ]
+      }
+    ],
+
+    "declaration-property-value-no-unknown": null,
+
+    "no-empty-source": null,
+
+    "declaration-block-no-duplicate-properties": [
+      true,
+      {
+        "ignore": [
+          "consecutive-duplicates"
+        ]
+      }
+    ],
+
+    "property-no-unknown": [
+      true,
+      {
+        "ignoreProperties": [
+          "lines",
+          "/^--/",
+          "/^v-/",
+          "content-visibility",
+          "backdrop-filter",
+          "aspect-ratio",
+          "container-type",
+          "container-name"
+        ]
+      }
+    ],
+
+    "custom-property-pattern": null,
+
+    "keyframes-name-pattern": null,
+
+    "value-keyword-case": [
+      "lower",
+      {
+        "ignoreKeywords": [
+          "currentColor",
+          "v-bind",
+          "inherit",
+          "initial",
+          "unset",
+          "revert"
+        ]
+      }
+    ],
+
+    "selector-pseudo-element-no-unknown": [
+      true,
+      {
+        "ignorePseudoElements": [
+          "v-deep",
+          "v-global",
+          "v-slotted",
+          "part"
+        ]
+      }
+    ],
+
+    "no-invalid-position-at-import-rule": null,
+
+    "import-notation": null,
+
+    "media-feature-name-no-vendor-prefix": null,
+
+    "selector-not-notation": null,
+
+    "alpha-value-notation": null,
+
+    "color-function-notation": null,
+
+    "selector-type-no-unknown": [
+      true,
+      {
+        "ignore": [
+          "custom-elements",
+          "default-namespace"
+        ]
+      }
+    ],
+
+    "media-feature-name-no-unknown": true,
+
+    "font-family-no-missing-generic-family-keyword": null,
+
+    "scss/no-global-function-names": null,
+
+    "scss/comment-no-empty": null,
+
+    "scss/operator-no-unspaced": null,
+
+    "scss/dollar-variable-empty-line-before": null,
+
+    "scss/double-slash-comment-empty-line-before": null,
+
+    "declaration-empty-line-before": null,
+
+    "rule-empty-line-before": null,
+
+    "at-rule-empty-line-before": null,
+
+    "comment-empty-line-before": null,
+
+    "block-no-empty": null,
+
+    "scss/at-mixin-pattern": null,
+
+    "scss/at-function-pattern": null,
+
+    "scss/percent-placeholder-pattern": null,
+
+    "scss/selector-no-redundant-nesting-selector": null,
+
+    "scss/at-import-partial-extension": null,
+
+    "scss/at-import-no-partial-leading-underscore": null,
+
+    "scss/map-keys-quotes": null,
+
+    "scss/dimension-no-non-numeric-values": null,
+
+    "scss/function-quote-no-quoted-strings-inside": null,
+
+    "scss/function-unquote-no-unquoted-strings-inside": null,
+
+    "scss/operator-no-newline-after": null,
+
+    "scss/operator-no-newline-before": null,
+
+    "order/properties-order": [],
+
+    "at-rule-no-deprecated": null
+  }
+}

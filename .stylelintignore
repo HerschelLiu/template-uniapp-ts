@@ -1,0 +1,7 @@
+dist/*.js
+src/static
+node_modules
+index.html
+public
+scripts
+src/unpackage

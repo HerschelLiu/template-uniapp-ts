@@ -23,7 +23,7 @@ try {
 export default [
   // 基础配置
   {
-    ignores: ['dist', 'src/static', 'node_modules', 'index.html']
+    ignores: ['dist', 'src/static', 'node_modules', 'index.html', 'unpackage']
   },
 
   // JS相关配置
@@ -36,7 +36,9 @@ export default [
     languageOptions: {
       globals: {
         ...autoImportGlobals,
-        console: 'readonly'
+        console: 'readonly',
+        uni: 'readonly',
+        wx: 'readonly'
       }
     },
     rules: {
