@@ -4,9 +4,11 @@ import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default async () => {
+  const UnoCSS = (await import('unocss/vite')).default
+
   return defineConfig({
     envDir: './env',
-    plugins: [uni()],
+    plugins: [uni(), UnoCSS()],
     resolve: {
       alias: {
         '@': resolve(__dirname, './src')
