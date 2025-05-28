@@ -92,6 +92,7 @@
     "shallowReactive": true,
     "shallowReadonly": true,
     "shallowRef": true,
+    "store": true,
     "storeToRefs": true,
     "toRaw": true,
     "toRef": true,
