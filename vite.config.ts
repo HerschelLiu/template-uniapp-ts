@@ -1,7 +1,9 @@
-import { defineConfig } from 'vite'
-import uni from '@dcloudio/vite-plugin-uni'
 import { resolve } from 'path'
+
+import uni from '@dcloudio/vite-plugin-uni'
 import AutoImport from 'unplugin-auto-import/vite'
+import { defineConfig } from 'vite'
+import eslint from 'vite-plugin-eslint'
 
 // https://vitejs.dev/config/
 export default async () => {
@@ -36,7 +38,8 @@ export default async () => {
         eslintrc: {
           enabled: true
         }
-      })
+      }),
+      eslint()
     ],
     resolve: {
       alias: {
