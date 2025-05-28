@@ -11,6 +11,8 @@ import ViteRestart from 'vite-plugin-restart'
 export default async () => {
   const UnoCSS = (await import('unocss/vite')).default
 
+  const { UNI_PLATFORM } = process.env
+
   return defineConfig({
     envDir: './env',
     plugins: [
@@ -62,6 +64,9 @@ export default async () => {
       alias: {
         '@': resolve(__dirname, './src')
       }
+    },
+    define: {
+      __UNI_PLATFORM__: JSON.stringify(UNI_PLATFORM)
     },
     css: {
       preprocessorOptions: {

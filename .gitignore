@@ -12,6 +12,11 @@ node_modules
 dist
 *.local
 
+.eslintrc-auto-import.json
+src/types/auto-imports.d.ts
+src/types/async-component.d.ts
+src/types/async-import.d.ts
+
 # Editor directories and files
 .idea
 *.suo

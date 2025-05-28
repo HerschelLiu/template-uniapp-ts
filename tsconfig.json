@@ -13,7 +13,7 @@
     "types": ["@dcloudio/types", "@types/node", "@uni-helper/uni-types", "uview-plus/types"]
   },
   "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.jsx", "src/**/*.vue", "src/**/*.json"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "dist", "scripts"],
   "vueCompilerOptions": {
     "plugins": ["@uni-helper/uni-types/volar-plugin"]
   }
