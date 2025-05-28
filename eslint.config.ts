@@ -113,7 +113,8 @@ export default [
             '^_|props|emit|refs|ref|setup|onMounted|watch|computed|defineProps|defineEmits|error|useState|useStore|useRoute|useRouter',
           argsIgnorePattern: '^_|e|event|err|error'
         }
-      ]
+      ],
+      'vue/attributes-order': 'error'
     }
   },
 

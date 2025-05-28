@@ -1,6 +1,6 @@
 <template>
   <view class="content">
-    <image class="logo" src="/static/logo.png" />
+    <image v-if="true" id="1" class="logo" src="/static/logo.png" />
     <view class="text-area">
       <text class="title">{{ title }}</text>
     </view>
