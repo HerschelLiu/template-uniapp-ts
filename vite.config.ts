@@ -8,7 +8,7 @@ import eslint from 'vite-plugin-eslint'
 import ViteRestart from 'vite-plugin-restart'
 
 // https://vitejs.dev/config/
-export default async () => {
+export default async ({ mode }) => {
   const UnoCSS = (await import('unocss/vite')).default
 
   const { UNI_PLATFORM } = process.env
@@ -72,6 +72,19 @@ export default async () => {
       preprocessorOptions: {
         scss: {
           // additionalData: `@use '@/styles/mixin.scss' as *;`
+        }
+      }
+    },
+    build: {
+      // 方便非h5端调试
+      sourcemap: mode === 'development',
+      target: 'es6',
+      // 开发环境不用压缩
+      minify: mode === 'development' ? false : 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: mode === 'development',
+          drop_debugger: true
         }
       }
     }
