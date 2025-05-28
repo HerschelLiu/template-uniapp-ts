@@ -1,6 +1,7 @@
 import { resolve } from 'path'
 
 import uni from '@dcloudio/vite-plugin-uni'
+import Optimization from '@uni-ku/bundle-optimizer'
 import AutoImport from 'unplugin-auto-import/vite'
 import { defineConfig } from 'vite'
 import eslint from 'vite-plugin-eslint'
@@ -38,6 +39,17 @@ export default async () => {
         eslintrc: {
           enabled: true
         }
+      }),
+      Optimization({
+        enable: {
+          optimization: true,
+          'async-import': true,
+          'async-component': true
+        },
+        dts: {
+          base: 'src/types'
+        },
+        logger: false
       }),
       eslint()
     ],

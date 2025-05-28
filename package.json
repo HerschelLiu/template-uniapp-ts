@@ -69,6 +69,7 @@
     "@types/node": "^22.15.23",
     "@uni-helper/uni-types": "^1.0.0-alpha.6",
     "@uni-helper/unocss-preset-uni": "^0.2.11",
+    "@uni-ku/bundle-optimizer": "^1.3.3",
     "@vue/runtime-core": "3.5.15",
     "@vue/tsconfig": "^0.7.0",
     "eslint": "^9.27.0",
