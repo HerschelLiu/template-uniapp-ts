@@ -1,6 +1,4 @@
-<template>
-  <view>首页</view>
-</template>
+<template></template>
 
 <script lang="ts" setup>
 // 如果需要props，可以在这里定义

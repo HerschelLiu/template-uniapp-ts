@@ -7,30 +7,53 @@
 export {}
 declare global {
   const EffectScope: typeof import('vue')['EffectScope']
+  const MiniProgramEnvVersion: typeof import('../enum/settings')['MiniProgramEnvVersion']
+  const ServerId: typeof import('../enum/settings')['ServerId']
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate']
+  const api: typeof import('../api/index')['default']
+  const compose: typeof import('../api/http/compose')['default']
   const computed: typeof import('vue')['computed']
   const createApp: typeof import('vue')['createApp']
   const createPinia: typeof import('pinia')['createPinia']
   const customRef: typeof import('vue')['customRef']
   const defineAsyncComponent: typeof import('vue')['defineAsyncComponent']
   const defineComponent: typeof import('vue')['defineComponent']
+  const defineModelValueProps: typeof import('../hooks/useModelValue')['defineModelValueProps']
   const defineStore: typeof import('pinia')['defineStore']
+  const downloadTemplate: typeof import('../utils/common')['downloadTemplate']
   const effectScope: typeof import('vue')['effectScope']
   const getActivePinia: typeof import('pinia')['getActivePinia']
+  const getAgreement: typeof import('../api/modules/common/index')['getAgreement']
+  const getArrayMaxDepth: typeof import('../hooks/useArray')['getArrayMaxDepth']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
+  const getCurrentPagesList: typeof import('../hooks/useRouter')['getCurrentPagesList']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
+  const getOpacity: typeof import('../hooks/useBase')['getOpacity']
+  const getRightUrl: typeof import('../hooks/useRouter')['getRightUrl']
+  const getThePage: typeof import('../hooks/useRouter')['getThePage']
+  const getThePageByPath: typeof import('../hooks/useRouter')['getThePageByPath']
   const h: typeof import('vue')['h']
+  const http: typeof import('../api/http/index')['default']
+  const initRequest: typeof import('../api/middleware/initRequest')['default']
   const inject: typeof import('vue')['inject']
+  const isDate: typeof import('../hooks/useValidate')['isDate']
+  const isHaveValue: typeof import('../hooks/useValidate')['isHaveValue']
   const isProxy: typeof import('vue')['isProxy']
   const isReactive: typeof import('vue')['isReactive']
   const isReadonly: typeof import('vue')['isReadonly']
   const isRef: typeof import('vue')['isRef']
+  const isTabBar: typeof import('../hooks/useRouter')['isTabBar']
+  const jumpPage: typeof import('../hooks/useRouter')['jumpPage']
+  const login: typeof import('../api/modules/system/index')['login']
+  const logout: typeof import('../api/modules/system/index')['logout']
   const mapActions: typeof import('pinia')['mapActions']
   const mapGetters: typeof import('pinia')['mapGetters']
   const mapState: typeof import('pinia')['mapState']
   const mapStores: typeof import('pinia')['mapStores']
   const mapWritableState: typeof import('pinia')['mapWritableState']
   const markRaw: typeof import('vue')['markRaw']
+  const navigateBack: typeof import('../hooks/useRouter')['navigateBack']
+  const navigateTo: typeof import('../hooks/useRouter')['navigateTo']
   const nextTick: typeof import('vue')['nextTick']
   const onActivated: typeof import('vue')['onActivated']
   const onAddToFavorites: typeof import('@dcloudio/uni-app')['onAddToFavorites']
@@ -71,10 +94,14 @@ declare global {
   const onUpdated: typeof import('vue')['onUpdated']
   const onWatcherCleanup: typeof import('vue')['onWatcherCleanup']
   const pinia: typeof import('@/store')['default']
+  const previewImage: typeof import('../utils/common')['previewImage']
   const provide: typeof import('vue')['provide']
+  const reLaunch: typeof import('../hooks/useRouter')['reLaunch']
   const reactive: typeof import('vue')['reactive']
   const readonly: typeof import('vue')['readonly']
+  const redirectTo: typeof import('../hooks/useRouter')['redirectTo']
   const ref: typeof import('vue')['ref']
+  const register: typeof import('../api/modules/system/index')['register']
   const resolveComponent: typeof import('vue')['resolveComponent']
   const setActivePinia: typeof import('pinia')['setActivePinia']
   const setMapStoreSuffix: typeof import('pinia')['setMapStoreSuffix']
@@ -89,15 +116,74 @@ declare global {
   const toRefs: typeof import('vue')['toRefs']
   const toValue: typeof import('vue')['toValue']
   const triggerRef: typeof import('vue')['triggerRef']
+  const uniProxy: typeof import('../utils/uniProxy')['default']
   const unref: typeof import('vue')['unref']
   const upp: typeof import('@/utils/uniProxy')['default']
+  const useAdd: typeof import('../hooks/useCalc')['useAdd']
+  const useAfterList: typeof import('../hooks/useList')['useAfterList']
+  const useAppLaunch: typeof import('../hooks/useBase')['useAppLaunch']
+  const useAppShow: typeof import('../hooks/useBase')['useAppShow']
+  const useArgsObjToStr: typeof import('../hooks/useArgs')['useArgsObjToStr']
+  const useArgsStrToObj: typeof import('../hooks/useArgs')['useArgsStrToObj']
+  const useArgsUrl: typeof import('../hooks/useArgs')['useArgsUrl']
   const useAttrs: typeof import('vue')['useAttrs']
+  const useBeforeList: typeof import('../hooks/useList')['useBeforeList']
+  const useClone: typeof import('../hooks/useObject')['useClone']
+  const useCosImage: typeof import('../hooks/useSetting')['useCosImage']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
+  const useDateFormat: typeof import('../hooks/useDate')['useDateFormat']
+  const useDebounce: typeof import('../hooks/useDebounce')['useDebounce']
+  const useDeleteObjectKey: typeof import('../hooks/useObject')['useDeleteObjectKey']
+  const useDivide: typeof import('../hooks/useCalc')['useDivide']
+  const useEnterAnimation: typeof import('../hooks/useAnimation')['useEnterAnimation']
+  const useEnterOptions: typeof import('../hooks/useBase')['useEnterOptions']
+  const useEnum: typeof import('../hooks/useEnum')['useEnum']
+  const useEnumArray: typeof import('../hooks/useEnum')['useEnumArray']
+  const useEnumValue: typeof import('../hooks/useEnum')['useEnumValue']
+  const useEscapeRegExp: typeof import('../hooks/useString')['useEscapeRegExp']
+  const useFindNode: typeof import('../hooks/useArray')['useFindNode']
+  const useFindNodeWithAncestors: typeof import('../hooks/useArray')['useFindNodeWithAncestors']
+  const useFormatMoney: typeof import('../hooks/useValidate')['useFormatMoney']
+  const useGetObjMaxDepth: typeof import('../hooks/useArray')['useGetObjMaxDepth']
+  const useHideLoading: typeof import('../hooks/useTip')['useHideLoading']
+  const useHideToast: typeof import('../hooks/useTip')['useHideToast']
   const useId: typeof import('vue')['useId']
+  const useInitList: typeof import('../hooks/useList')['useInitList']
+  const useInputDigitFormat: typeof import('../hooks/useValidate')['useInputDigitFormat']
+  const useInputMoneyFormat: typeof import('../hooks/useValidate')['useInputMoneyFormat']
+  const useInputNumberFormat: typeof import('../hooks/useValidate')['useInputNumberFormat']
+  const useLeaveAnimation: typeof import('../hooks/useAnimation')['useLeaveAnimation']
+  const useLineString: typeof import('../hooks/useString')['useLineString']
+  const useList: typeof import('../hooks/useList')['useList']
+  const useLog: typeof import('../hooks/useLog')['useLog']
+  const useModal: typeof import('../hooks/useModal')['useModal']
   const useModel: typeof import('vue')['useModel']
+  const useModelValue: typeof import('../hooks/useModelValue')['useModelValue']
+  const useMulti: typeof import('../hooks/useCalc')['useMulti']
+  const useResetObject: typeof import('../hooks/useObject')['useResetObject']
+  const useRules: typeof import('../hooks/useRules')['useRules']
+  const useSettingsStore: typeof import('../store/useSetting')['useSettingsStore']
+  const useShowLoading: typeof import('../hooks/useTip')['useShowLoading']
+  const useShowModal: typeof import('../hooks/useTip')['useShowModal']
+  const useShowToast: typeof import('../hooks/useTip')['useShowToast']
+  const useSleep: typeof import('../hooks/useUtils')['useSleep']
   const useSlots: typeof import('vue')['useSlots']
+  const useSort: typeof import('../hooks/useArray')['useSort']
+  const useStorage: typeof import('../hooks/useStorage')['useStorage']
+  const useStyle: typeof import('../hooks/useStyle')['useStyle']
+  const useStylePadding: typeof import('../hooks/useStyle')['useStylePadding']
+  const useSub: typeof import('../hooks/useCalc')['useSub']
+  const useSubscribe: typeof import('../hooks/useSubscribe')['useSubscribe']
   const useTemplateRef: typeof import('vue')['useTemplateRef']
+  const useThrottle: typeof import('../hooks/useDebounce')['useThrottle']
+  const useUnit: typeof import('../hooks/useStyle')['useUnit']
+  const useUpdateManager: typeof import('../hooks/useBase')['useUpdateManager']
+  const useUserStore: typeof import('../store/useUser')['useUserStore']
+  const useValidateArgs: typeof import('../hooks/useArgs')['useValidateArgs']
+  const useValidateCount: typeof import('../hooks/useRules')['useValidateCount']
+  const useValue: typeof import('../hooks/useObject')['useValue']
+  const userLogout: typeof import('../hooks/useBase')['userLogout']
   const validing: typeof import('validing')['default']
   const watch: typeof import('vue')['watch']
   const watchEffect: typeof import('vue')['watchEffect']
@@ -109,6 +195,27 @@ declare global {
   // @ts-ignore
   export type { Component, Slot, Slots, ComponentPublicInstance, ComputedRef, DirectiveBinding, ExtractDefaultPropTypes, ExtractPropTypes, ExtractPublicPropTypes, InjectionKey, PropType, Ref, MaybeRef, MaybeRefOrGetter, VNode, WritableComputedRef } from 'vue'
   import('vue')
+  // @ts-ignore
+  export type { EnumArray } from '../hooks/useEnum'
+  import('../hooks/useEnum')
+  // @ts-ignore
+  export type { IStylePadding } from '../hooks/useStyle'
+  import('../hooks/useStyle')
+  // @ts-ignore
+  export type { ComposeNext, ComposeMiddleware } from '../api/http/compose'
+  import('../api/http/compose')
+  // @ts-ignore
+  export type { Next, Middleware } from '../api/http/index'
+  import('../api/http/index')
+  // @ts-ignore
+  export type { ResponseAgreement } from '../api/modules/common/index'
+  import('../api/modules/common/index')
+  // @ts-ignore
+  export type { RequestRegister, ResponseRegister, RequestLogin } from '../api/modules/system/index'
+  import('../api/modules/system/index')
+  // @ts-ignore
+  export type { ServerId, MiniProgramEnvVersion } from '../enum/settings'
+  import('../enum/settings')
 }
 
 // for vue template auto import
@@ -117,30 +224,52 @@ declare module 'vue' {
   interface GlobalComponents {}
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
+    readonly MiniProgramEnvVersion: UnwrapRef<typeof import('../enum/settings')['MiniProgramEnvVersion']>
+    readonly ServerId: UnwrapRef<typeof import('../enum/settings')['ServerId']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
+    readonly api: UnwrapRef<typeof import('../api/index')['default']>
+    readonly compose: UnwrapRef<typeof import('../api/http/compose')['default']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
     readonly createPinia: UnwrapRef<typeof import('pinia')['createPinia']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
+    readonly defineModelValueProps: UnwrapRef<typeof import('../hooks/useModelValue')['defineModelValueProps']>
     readonly defineStore: UnwrapRef<typeof import('pinia')['defineStore']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly getActivePinia: UnwrapRef<typeof import('pinia')['getActivePinia']>
+    readonly getAgreement: UnwrapRef<typeof import('../api/modules/common/index')['getAgreement']>
+    readonly getArrayMaxDepth: UnwrapRef<typeof import('../hooks/useArray')['getArrayMaxDepth']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
+    readonly getCurrentPagesList: UnwrapRef<typeof import('../hooks/useRouter')['getCurrentPagesList']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
+    readonly getOpacity: UnwrapRef<typeof import('../hooks/useBase')['getOpacity']>
+    readonly getRightUrl: UnwrapRef<typeof import('../hooks/useRouter')['getRightUrl']>
+    readonly getThePage: UnwrapRef<typeof import('../hooks/useRouter')['getThePage']>
+    readonly getThePageByPath: UnwrapRef<typeof import('../hooks/useRouter')['getThePageByPath']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
+    readonly http: UnwrapRef<typeof import('../api/http/index')['default']>
+    readonly initRequest: UnwrapRef<typeof import('../api/middleware/initRequest')['default']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
+    readonly isDate: UnwrapRef<typeof import('../hooks/useValidate')['isDate']>
+    readonly isHaveValue: UnwrapRef<typeof import('../hooks/useValidate')['isHaveValue']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
+    readonly isTabBar: UnwrapRef<typeof import('../hooks/useRouter')['isTabBar']>
+    readonly jumpPage: UnwrapRef<typeof import('../hooks/useRouter')['jumpPage']>
+    readonly login: UnwrapRef<typeof import('../api/modules/system/index')['login']>
+    readonly logout: UnwrapRef<typeof import('../api/modules/system/index')['logout']>
     readonly mapActions: UnwrapRef<typeof import('pinia')['mapActions']>
     readonly mapGetters: UnwrapRef<typeof import('pinia')['mapGetters']>
     readonly mapState: UnwrapRef<typeof import('pinia')['mapState']>
     readonly mapStores: UnwrapRef<typeof import('pinia')['mapStores']>
     readonly mapWritableState: UnwrapRef<typeof import('pinia')['mapWritableState']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
+    readonly navigateBack: UnwrapRef<typeof import('../hooks/useRouter')['navigateBack']>
+    readonly navigateTo: UnwrapRef<typeof import('../hooks/useRouter')['navigateTo']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
     readonly onActivated: UnwrapRef<typeof import('vue')['onActivated']>
     readonly onAddToFavorites: UnwrapRef<typeof import('@dcloudio/uni-app')['onAddToFavorites']>
@@ -182,9 +311,12 @@ declare module 'vue' {
     readonly onWatcherCleanup: UnwrapRef<typeof import('vue')['onWatcherCleanup']>
     readonly pinia: UnwrapRef<typeof import('@/store')['default']>
     readonly provide: UnwrapRef<typeof import('vue')['provide']>
+    readonly reLaunch: UnwrapRef<typeof import('../hooks/useRouter')['reLaunch']>
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
+    readonly redirectTo: UnwrapRef<typeof import('../hooks/useRouter')['redirectTo']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
+    readonly register: UnwrapRef<typeof import('../api/modules/system/index')['register']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly setActivePinia: UnwrapRef<typeof import('pinia')['setActivePinia']>
     readonly setMapStoreSuffix: UnwrapRef<typeof import('pinia')['setMapStoreSuffix']>
@@ -199,15 +331,74 @@ declare module 'vue' {
     readonly toRefs: UnwrapRef<typeof import('vue')['toRefs']>
     readonly toValue: UnwrapRef<typeof import('vue')['toValue']>
     readonly triggerRef: UnwrapRef<typeof import('vue')['triggerRef']>
+    readonly uniProxy: UnwrapRef<typeof import('../utils/uniProxy')['default']>
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly upp: UnwrapRef<typeof import('@/utils/uniProxy')['default']>
+    readonly useAdd: UnwrapRef<typeof import('../hooks/useCalc')['useAdd']>
+    readonly useAfterList: UnwrapRef<typeof import('../hooks/useList')['useAfterList']>
+    readonly useAppLaunch: UnwrapRef<typeof import('../hooks/useBase')['useAppLaunch']>
+    readonly useAppShow: UnwrapRef<typeof import('../hooks/useBase')['useAppShow']>
+    readonly useArgsObjToStr: UnwrapRef<typeof import('../hooks/useArgs')['useArgsObjToStr']>
+    readonly useArgsStrToObj: UnwrapRef<typeof import('../hooks/useArgs')['useArgsStrToObj']>
+    readonly useArgsUrl: UnwrapRef<typeof import('../hooks/useArgs')['useArgsUrl']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
+    readonly useBeforeList: UnwrapRef<typeof import('../hooks/useList')['useBeforeList']>
+    readonly useClone: UnwrapRef<typeof import('../hooks/useObject')['useClone']>
+    readonly useCosImage: UnwrapRef<typeof import('../hooks/useSetting')['useCosImage']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
+    readonly useDateFormat: UnwrapRef<typeof import('../hooks/useDate')['useDateFormat']>
+    readonly useDebounce: UnwrapRef<typeof import('../hooks/useDebounce')['useDebounce']>
+    readonly useDeleteObjectKey: UnwrapRef<typeof import('../hooks/useObject')['useDeleteObjectKey']>
+    readonly useDivide: UnwrapRef<typeof import('../hooks/useCalc')['useDivide']>
+    readonly useEnterAnimation: UnwrapRef<typeof import('../hooks/useAnimation')['useEnterAnimation']>
+    readonly useEnterOptions: UnwrapRef<typeof import('../hooks/useBase')['useEnterOptions']>
+    readonly useEnum: UnwrapRef<typeof import('../hooks/useEnum')['useEnum']>
+    readonly useEnumArray: UnwrapRef<typeof import('../hooks/useEnum')['useEnumArray']>
+    readonly useEnumValue: UnwrapRef<typeof import('../hooks/useEnum')['useEnumValue']>
+    readonly useEscapeRegExp: UnwrapRef<typeof import('../hooks/useString')['useEscapeRegExp']>
+    readonly useFindNode: UnwrapRef<typeof import('../hooks/useArray')['useFindNode']>
+    readonly useFindNodeWithAncestors: UnwrapRef<typeof import('../hooks/useArray')['useFindNodeWithAncestors']>
+    readonly useFormatMoney: UnwrapRef<typeof import('../hooks/useValidate')['useFormatMoney']>
+    readonly useGetObjMaxDepth: UnwrapRef<typeof import('../hooks/useArray')['useGetObjMaxDepth']>
+    readonly useHideLoading: UnwrapRef<typeof import('../hooks/useTip')['useHideLoading']>
+    readonly useHideToast: UnwrapRef<typeof import('../hooks/useTip')['useHideToast']>
     readonly useId: UnwrapRef<typeof import('vue')['useId']>
+    readonly useInitList: UnwrapRef<typeof import('../hooks/useList')['useInitList']>
+    readonly useInputDigitFormat: UnwrapRef<typeof import('../hooks/useValidate')['useInputDigitFormat']>
+    readonly useInputMoneyFormat: UnwrapRef<typeof import('../hooks/useValidate')['useInputMoneyFormat']>
+    readonly useInputNumberFormat: UnwrapRef<typeof import('../hooks/useValidate')['useInputNumberFormat']>
+    readonly useLeaveAnimation: UnwrapRef<typeof import('../hooks/useAnimation')['useLeaveAnimation']>
+    readonly useLineString: UnwrapRef<typeof import('../hooks/useString')['useLineString']>
+    readonly useList: UnwrapRef<typeof import('../hooks/useList')['useList']>
+    readonly useLog: UnwrapRef<typeof import('../hooks/useLog')['useLog']>
+    readonly useModal: UnwrapRef<typeof import('../hooks/useModal')['useModal']>
     readonly useModel: UnwrapRef<typeof import('vue')['useModel']>
+    readonly useModelValue: UnwrapRef<typeof import('../hooks/useModelValue')['useModelValue']>
+    readonly useMulti: UnwrapRef<typeof import('../hooks/useCalc')['useMulti']>
+    readonly useResetObject: UnwrapRef<typeof import('../hooks/useObject')['useResetObject']>
+    readonly useRules: UnwrapRef<typeof import('../hooks/useRules')['useRules']>
+    readonly useSettingsStore: UnwrapRef<typeof import('../store/useSetting')['useSettingsStore']>
+    readonly useShowLoading: UnwrapRef<typeof import('../hooks/useTip')['useShowLoading']>
+    readonly useShowModal: UnwrapRef<typeof import('../hooks/useTip')['useShowModal']>
+    readonly useShowToast: UnwrapRef<typeof import('../hooks/useTip')['useShowToast']>
+    readonly useSleep: UnwrapRef<typeof import('../hooks/useUtils')['useSleep']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
+    readonly useSort: UnwrapRef<typeof import('../hooks/useArray')['useSort']>
+    readonly useStorage: UnwrapRef<typeof import('../hooks/useStorage')['useStorage']>
+    readonly useStyle: UnwrapRef<typeof import('../hooks/useStyle')['useStyle']>
+    readonly useStylePadding: UnwrapRef<typeof import('../hooks/useStyle')['useStylePadding']>
+    readonly useSub: UnwrapRef<typeof import('../hooks/useCalc')['useSub']>
+    readonly useSubscribe: UnwrapRef<typeof import('../hooks/useSubscribe')['useSubscribe']>
     readonly useTemplateRef: UnwrapRef<typeof import('vue')['useTemplateRef']>
+    readonly useThrottle: UnwrapRef<typeof import('../hooks/useDebounce')['useThrottle']>
+    readonly useUnit: UnwrapRef<typeof import('../hooks/useStyle')['useUnit']>
+    readonly useUpdateManager: UnwrapRef<typeof import('../hooks/useBase')['useUpdateManager']>
+    readonly useUserStore: UnwrapRef<typeof import('../store/useUser')['useUserStore']>
+    readonly useValidateArgs: UnwrapRef<typeof import('../hooks/useArgs')['useValidateArgs']>
+    readonly useValidateCount: UnwrapRef<typeof import('../hooks/useRules')['useValidateCount']>
+    readonly useValue: UnwrapRef<typeof import('../hooks/useObject')['useValue']>
+    readonly userLogout: UnwrapRef<typeof import('../hooks/useBase')['userLogout']>
     readonly validing: UnwrapRef<typeof import('validing')['default']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>

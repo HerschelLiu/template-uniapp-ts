@@ -4,21 +4,80 @@
     "custom": {
       "^u--(.*)": "uview-plus/components/u-$1/u-$1.vue",
       "^up-(.*)": "uview-plus/components/u-$1/u-$1.vue",
-      "^u-([^-].*)": "uview-plus/components/u-$1/u-$1.vue"
+      "^u-([^-].*)": "uview-plus/components/u-$1/u-$1.vue",
+      "^comp-(?!.*-)([a-z0-9]+)$": "@/components/$1/($1|index).vue",
+      "^comp-(.*)-([a-z0-9]+)$": "@/components/($1$2|$1-$2)/($1$2|$1-$2|index).vue"
     }
   },
   "pages": [
     {
       "path": "pages/index/index",
       "style": {
-        "navigationBarTitleText": "uni-app"
+        "navigationBarTitleText": "首页"
+      }
+    },
+    {
+      "path": "pages/webview/webview"
+    },
+    {
+      "path": "pages/jump/jump",
+      "style": {
+        "navigationBarTitleText": "跳板页",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/login/index",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/order/order",
+      "style": {
+        "navigationBarTitleText": "订单"
+      }
+    },
+    {
+      "path": "pages/my/my",
+      "style": {
+        "navigationBarTitleText": "我的"
       }
     }
   ],
+  "subPackages": [],
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#F00000",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "height": "50px",
+    "fontSize": "10px",
+    "iconWidth": "20px",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      }
+    ]
+  },
   "globalStyle": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
-    "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8"
+    "navigationBarTitleText": "惠民口福",
+    "navigationBarBackgroundColor": "#f7f7f7",
+    "backgroundColor": "#f7f7f7"
+  },
+  "uniIdRouter": {
+    "loginPage": "pages/login/index",
+    "needLogin": []
   }
 }

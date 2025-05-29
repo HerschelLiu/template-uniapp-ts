@@ -71,7 +71,7 @@ export default async ({ mode }) => {
     css: {
       preprocessorOptions: {
         scss: {
-          // additionalData: `@use '@/styles/mixin.scss' as *;`
+          additionalData: `@import '@/styles/mixin.scss';`
         }
       }
     },

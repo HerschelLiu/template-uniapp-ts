@@ -1,5 +1,5 @@
 <template>
-  <view>首页</view>
+  <view>订单</view>
 </template>
 
 <script lang="ts" setup>
