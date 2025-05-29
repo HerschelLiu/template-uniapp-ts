@@ -14,3 +14,8 @@ export interface ResponseAgreement {
   /** logo */
   image: string
 }
+
+/** 获取订阅通知模板id */
+export const getSubscribeTemplateId = (scene: number): ResponsePromise<string> => {
+  return api.request({ url: '/brand/common/getSubscribeTemplateId', data: { scene } })
+}

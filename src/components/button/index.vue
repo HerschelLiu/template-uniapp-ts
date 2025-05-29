@@ -19,7 +19,6 @@ import type { PropType } from 'vue'
 
 import { computed } from 'vue'
 
-
 const props = defineProps({
   openType: {
     type: String as PropType<UniHelper.ButtonOpenType>,

@@ -59,7 +59,9 @@
     "@dcloudio/uni-quickapp-webview": "3.0.0-4060620250520001",
     "uview-plus": "^3.4.36",
     "vue": "3.4.21",
-    "vue-i18n": "9.14.4"
+    "vue-i18n": "9.14.4",
+    "pinia": "^2.0.36",
+    "pinia-plugin-persistedstate": "^3.2.3"
   },
   "devDependencies": {
     "@dcloudio/types": "3.4.15",
@@ -87,8 +89,6 @@
     "inquirer": "^12.6.3",
     "miniprogram-ci": "^2.0.10",
     "ora": "^8.2.0",
-    "pinia": "^2.0.36",
-    "pinia-plugin-persistedstate": "^3.2.1",
     "postcss-html": "^1.8.0",
     "postcss-scss": "^4.0.9",
     "prettier": "^3.5.3",

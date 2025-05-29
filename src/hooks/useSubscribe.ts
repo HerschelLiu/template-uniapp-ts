@@ -1,14 +1,9 @@
-import type { Subscribe } from '@/enum/common'
-
 import { getSubscribeTemplateId } from '@/api/modules/common'
 
 import { useShowModal } from './useTip'
 
-
-
-
-export const useSubscribe = (keys: (Subscribe | string)[], type: 'scene' | 'tmplIds' = 'scene') => {
-  return new Promise(async resolve => {
+export const useSubscribe = (keys: Key[], type: 'scene' | 'tmplIds' = 'scene') => {
+  return new Promise(resolve => {
     uni.getSetting({
       withSubscriptions: true,
       async success(res) {
@@ -34,7 +29,7 @@ export const useSubscribe = (keys: (Subscribe | string)[], type: 'scene' | 'tmpl
         try {
           let tmplIds: string[] = []
           if (type === 'scene') {
-            const { data } = await getSubscribeTemplateId(keys[0] as Subscribe)
+            const { data } = await getSubscribeTemplateId(keys[0] as number)
             tmplIds = [data]
           } else {
             tmplIds = keys as string[]
