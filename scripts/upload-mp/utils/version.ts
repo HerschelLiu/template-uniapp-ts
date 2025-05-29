@@ -2,9 +2,9 @@ import path from 'path'
 
 import fs from 'fs-plus'
 
-const versionsPath = path.resolve(process.cwd(), 'versions.json')
+import jsonTemplate from '../template/versions'
 
-const jsonTemplate = { 'mp-weixin': { version: '' } }
+const versionsPath = path.resolve(process.cwd(), 'versions.json')
 
 /** 读取/创建 versions.json */
 export const readVersions = () => {
