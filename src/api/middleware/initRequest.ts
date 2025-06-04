@@ -1,11 +1,7 @@
-import type { Middleware } from '@/api/http'
+import type { Middleware } from '@/api/http/index'
 
 import { storeToRefs } from 'pinia'
 
-import Http from '@/api/http'
-import { useLog } from '@/hooks/useLog'
-import settings from '@/settings'
-import pinia from '@/store'
 import { useSettingsStore } from '@/store/useSetting'
 
 const initRequest: Middleware = next => async req => {
@@ -13,7 +9,7 @@ const initRequest: Middleware = next => async req => {
   if (request.value.url) return await next(req)
 
   try {
-    const { data } = await new Http().request<{ url: string; env: string }>({
+    const { data } = await createHttp().request<{ url: string; env: string }>({
       url: settings.grayUrl,
       method: 'POST',
       data: {

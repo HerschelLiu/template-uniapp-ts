@@ -13,14 +13,16 @@ declare global {
   const api: typeof import('../api/index')['default']
   const compose: typeof import('../api/http/compose')['default']
   const computed: typeof import('vue')['computed']
+  const createApi: typeof import('../api/index')['createApi']
   const createApp: typeof import('vue')['createApp']
+  const createHttp: typeof import('../api/http/index')['createHttp']
   const createPinia: typeof import('pinia')['createPinia']
   const customRef: typeof import('vue')['customRef']
   const defineAsyncComponent: typeof import('vue')['defineAsyncComponent']
   const defineComponent: typeof import('vue')['defineComponent']
   const defineModelValueProps: typeof import('../hooks/useModelValue')['defineModelValueProps']
   const defineStore: typeof import('pinia')['defineStore']
-  const downloadTemplate: typeof import('../utils/common')['downloadTemplate']
+  const downloadTemplate: (typeof import('../utils/common'))['downloadTemplate']
   const effectScope: typeof import('vue')['effectScope']
   const getActivePinia: typeof import('pinia')['getActivePinia']
   const getAgreement: typeof import('../api/modules/common/index')['getAgreement']
@@ -30,10 +32,12 @@ declare global {
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const getOpacity: typeof import('../hooks/useBase')['getOpacity']
   const getRightUrl: typeof import('../hooks/useRouter')['getRightUrl']
+  const getSubscribeTemplateId: typeof import('../api/modules/common/index')['getSubscribeTemplateId']
   const getThePage: typeof import('../hooks/useRouter')['getThePage']
   const getThePageByPath: typeof import('../hooks/useRouter')['getThePageByPath']
   const h: typeof import('vue')['h']
-  const http: typeof import('../api/http/index')['default']
+  const http: (typeof import('../api/http/_index'))['default']
+  const index: typeof import('../api/http/_index')['default']
   const initRequest: typeof import('../api/middleware/initRequest')['default']
   const inject: typeof import('vue')['inject']
   const isDate: typeof import('../hooks/useValidate')['isDate']
@@ -94,7 +98,7 @@ declare global {
   const onUpdated: typeof import('vue')['onUpdated']
   const onWatcherCleanup: typeof import('vue')['onWatcherCleanup']
   const pinia: typeof import('@/store')['default']
-  const previewImage: typeof import('../utils/common')['previewImage']
+  const previewImage: (typeof import('../utils/common'))['previewImage']
   const provide: typeof import('vue')['provide']
   const reLaunch: typeof import('../hooks/useRouter')['reLaunch']
   const reactive: typeof import('vue')['reactive']
@@ -205,7 +209,7 @@ declare global {
   export type { ComposeNext, ComposeMiddleware } from '../api/http/compose'
   import('../api/http/compose')
   // @ts-ignore
-  export type { Next, Middleware } from '../api/http/index'
+  export type { Next, Middleware, HttpInstance } from '../api/http/index'
   import('../api/http/index')
   // @ts-ignore
   export type { ResponseAgreement } from '../api/modules/common/index'
@@ -230,7 +234,9 @@ declare module 'vue' {
     readonly api: UnwrapRef<typeof import('../api/index')['default']>
     readonly compose: UnwrapRef<typeof import('../api/http/compose')['default']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
+    readonly createApi: UnwrapRef<typeof import('../api/index')['createApi']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
+    readonly createHttp: UnwrapRef<typeof import('../api/http/index')['createHttp']>
     readonly createPinia: UnwrapRef<typeof import('pinia')['createPinia']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
@@ -246,10 +252,10 @@ declare module 'vue' {
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly getOpacity: UnwrapRef<typeof import('../hooks/useBase')['getOpacity']>
     readonly getRightUrl: UnwrapRef<typeof import('../hooks/useRouter')['getRightUrl']>
+    readonly getSubscribeTemplateId: UnwrapRef<typeof import('../api/modules/common/index')['getSubscribeTemplateId']>
     readonly getThePage: UnwrapRef<typeof import('../hooks/useRouter')['getThePage']>
     readonly getThePageByPath: UnwrapRef<typeof import('../hooks/useRouter')['getThePageByPath']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
-    readonly http: UnwrapRef<typeof import('../api/http/index')['default']>
     readonly initRequest: UnwrapRef<typeof import('../api/middleware/initRequest')['default']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly isDate: UnwrapRef<typeof import('../hooks/useValidate')['isDate']>

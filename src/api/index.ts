@@ -1,13 +1,7 @@
-import Http from './http'
-import initRequest from './middleware/initRequest'
-
-class Api extends Http {
-  constructor() {
-    super()
-    super.use(initRequest)
-  }
+export const createApi = () => {
+  const http = createHttp()
+  http.use(initRequest)
+  return http
 }
 
-const api = new Api()
-
-export default api
+export default createApi()
