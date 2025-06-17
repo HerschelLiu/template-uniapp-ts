@@ -74,19 +74,6 @@ export default async ({ mode }) => {
           additionalData: `@import '@/styles/mixin.scss';`
         }
       }
-    },
-    build: {
-      // 方便非h5端调试
-      sourcemap: mode === 'development',
-      target: 'es6',
-      // 开发环境不用压缩
-      minify: mode === 'development' ? false : 'terser',
-      terserOptions: {
-        compress: {
-          drop_console: mode === 'development',
-          drop_debugger: true
-        }
-      }
     }
   })
 }
