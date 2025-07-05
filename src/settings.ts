@@ -1,3 +1,30 @@
+export interface ISettings {
+  /** 小程序/APP/H5等名称 */
+  name: string
+  /** 同步获取系统信息 */
+  systemInfo: UniApp.GetSystemInfoResult
+  /** 获取小程序下该菜单按钮的布局位置信息 */
+  menuButton: UniApp.GetMenuButtonBoundingClientRectRes
+  /** 标题栏高度，含statusBarHeight，单位px */
+  titleBarHeight: number
+  /** 本地存储前缀 */
+  storagePrefix: string
+  /** oss图片地址前缀 */
+  imgSrc: string
+  /** 灰度地址 */
+  grayUrl: 'https://gray.hmkf688.com/brand/sysConfig/getAppServerAddr'
+  /** 内容窗口的上定位，让出titlebar的高度 */
+  styleTop: string
+  /** 内容窗口的上填充，让出titlebar的高度 */
+  stylePadding: string
+  tabbar: Tabs[]
+  /** 首页路径 */
+  homePath: string
+  env: UniApp.MiniProgram['envVersion']
+  /** 分享图片 */
+  shareImage: string
+}
+
 /** 页面主样式，padding */
 interface IStylePadding {
   /** 上填充，默认已经包含了titlebar */
@@ -51,7 +78,8 @@ export const useStylePadding = (options: IStylePadding = {}): string => {
   })
 }
 
-const settings = reactive({
+const settings = reactive<ISettings>({
+  name: '',
   systemInfo,
   menuButton,
   titleBarHeight,
@@ -78,7 +106,8 @@ const settings = reactive({
     }
   ],
   homePath: 'pages/index/index',
-  env: upp.getAccountInfoSync().miniProgram.envVersion
+  env: upp.getAccountInfoSync().miniProgram.envVersion,
+  shareImage: ''
 })
 
 export default settings
