@@ -9,6 +9,7 @@ declare global {
   const EffectScope: typeof import('vue')['EffectScope']
   const MiniProgramEnvVersion: typeof import('../enum/settings')['MiniProgramEnvVersion']
   const ServerId: typeof import('../enum/settings')['ServerId']
+  const ShareMode: typeof import('../enum/share')['ShareMode']
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate']
   const api: typeof import('../api/index')['default']
   const compose: typeof import('../api/http/compose')['default']
@@ -18,6 +19,7 @@ declare global {
   const createHttp: typeof import('../api/http/index')['createHttp']
   const createPinia: typeof import('pinia')['createPinia']
   const customRef: typeof import('vue')['customRef']
+  const dealPath: typeof import('../hooks/useShare')['dealPath']
   const defineAsyncComponent: typeof import('vue')['defineAsyncComponent']
   const defineComponent: typeof import('vue')['defineComponent']
   const defineModelValueProps: typeof import('../hooks/useModelValue')['defineModelValueProps']
@@ -138,6 +140,7 @@ declare global {
   const useCssVars: typeof import('vue')['useCssVars']
   const useDateFormat: typeof import('../hooks/useDate')['useDateFormat']
   const useDebounce: typeof import('../hooks/useDebounce')['useDebounce']
+  const useDefaultShareOptions: typeof import('../hooks/useShare')['useDefaultShareOptions']
   const useDeleteObjectKey: typeof import('../hooks/useObject')['useDeleteObjectKey']
   const useDivide: typeof import('../hooks/useCalc')['useDivide']
   const useEnterAnimation: typeof import('../hooks/useAnimation')['useEnterAnimation']
@@ -149,6 +152,7 @@ declare global {
   const useFindNode: typeof import('../hooks/useArray')['useFindNode']
   const useFindNodeWithAncestors: typeof import('../hooks/useArray')['useFindNodeWithAncestors']
   const useFormatMoney: typeof import('../hooks/useValidate')['useFormatMoney']
+  const useFormatQuery: typeof import('../hooks/useBase')['useFormatQuery']
   const useGetObjMaxDepth: typeof import('../hooks/useArray')['useGetObjMaxDepth']
   const useHideLoading: typeof import('../hooks/useTip')['useHideLoading']
   const useHideToast: typeof import('../hooks/useTip')['useHideToast']
@@ -165,6 +169,7 @@ declare global {
   const useModel: typeof import('vue')['useModel']
   const useModelValue: typeof import('../hooks/useModelValue')['useModelValue']
   const useMulti: typeof import('../hooks/useCalc')['useMulti']
+  const usePath: typeof import('../hooks/useShare')['usePath']
   const useResetObject: typeof import('../hooks/useObject')['useResetObject']
   const useRules: typeof import('../hooks/useRules')['useRules']
   const useSettingsStore: typeof import('../store/useSetting')['useSettingsStore']
@@ -181,6 +186,7 @@ declare global {
   const useSubscribe: typeof import('../hooks/useSubscribe')['useSubscribe']
   const useTemplateRef: typeof import('vue')['useTemplateRef']
   const useThrottle: typeof import('../hooks/useDebounce')['useThrottle']
+  const useTitleBarOpacity: typeof import('../hooks/useBase')['useTitleBarOpacity']
   const useUnit: typeof import('../hooks/useStyle')['useUnit']
   const useUpdateManager: typeof import('../hooks/useBase')['useUpdateManager']
   const useUserStore: typeof import('../store/useUser')['useUserStore']
@@ -203,6 +209,9 @@ declare global {
   export type { EnumArray } from '../hooks/useEnum'
   import('../hooks/useEnum')
   // @ts-ignore
+  export type { ShareOptions } from '../hooks/useShare'
+  import('../hooks/useShare')
+  // @ts-ignore
   export type { IStylePadding } from '../hooks/useStyle'
   import('../hooks/useStyle')
   // @ts-ignore
@@ -220,6 +229,9 @@ declare global {
   // @ts-ignore
   export type { ServerId, MiniProgramEnvVersion } from '../enum/settings'
   import('../enum/settings')
+  // @ts-ignore
+  export type { ShareMode } from '../enum/share'
+  import('../enum/share')
 }
 
 // for vue template auto import
@@ -230,6 +242,7 @@ declare module 'vue' {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly MiniProgramEnvVersion: UnwrapRef<typeof import('../enum/settings')['MiniProgramEnvVersion']>
     readonly ServerId: UnwrapRef<typeof import('../enum/settings')['ServerId']>
+    readonly ShareMode: UnwrapRef<typeof import('../enum/share')['ShareMode']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
     readonly api: UnwrapRef<typeof import('../api/index')['default']>
     readonly compose: UnwrapRef<typeof import('../api/http/compose')['default']>
@@ -239,6 +252,7 @@ declare module 'vue' {
     readonly createHttp: UnwrapRef<typeof import('../api/http/index')['createHttp']>
     readonly createPinia: UnwrapRef<typeof import('pinia')['createPinia']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
+    readonly dealPath: UnwrapRef<typeof import('../hooks/useShare')['dealPath']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
     readonly defineModelValueProps: UnwrapRef<typeof import('../hooks/useModelValue')['defineModelValueProps']>
@@ -355,6 +369,7 @@ declare module 'vue' {
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
     readonly useDateFormat: UnwrapRef<typeof import('../hooks/useDate')['useDateFormat']>
     readonly useDebounce: UnwrapRef<typeof import('../hooks/useDebounce')['useDebounce']>
+    readonly useDefaultShareOptions: UnwrapRef<typeof import('../hooks/useShare')['useDefaultShareOptions']>
     readonly useDeleteObjectKey: UnwrapRef<typeof import('../hooks/useObject')['useDeleteObjectKey']>
     readonly useDivide: UnwrapRef<typeof import('../hooks/useCalc')['useDivide']>
     readonly useEnterAnimation: UnwrapRef<typeof import('../hooks/useAnimation')['useEnterAnimation']>
@@ -366,6 +381,7 @@ declare module 'vue' {
     readonly useFindNode: UnwrapRef<typeof import('../hooks/useArray')['useFindNode']>
     readonly useFindNodeWithAncestors: UnwrapRef<typeof import('../hooks/useArray')['useFindNodeWithAncestors']>
     readonly useFormatMoney: UnwrapRef<typeof import('../hooks/useValidate')['useFormatMoney']>
+    readonly useFormatQuery: UnwrapRef<typeof import('../hooks/useBase')['useFormatQuery']>
     readonly useGetObjMaxDepth: UnwrapRef<typeof import('../hooks/useArray')['useGetObjMaxDepth']>
     readonly useHideLoading: UnwrapRef<typeof import('../hooks/useTip')['useHideLoading']>
     readonly useHideToast: UnwrapRef<typeof import('../hooks/useTip')['useHideToast']>
@@ -382,6 +398,7 @@ declare module 'vue' {
     readonly useModel: UnwrapRef<typeof import('vue')['useModel']>
     readonly useModelValue: UnwrapRef<typeof import('../hooks/useModelValue')['useModelValue']>
     readonly useMulti: UnwrapRef<typeof import('../hooks/useCalc')['useMulti']>
+    readonly usePath: UnwrapRef<typeof import('../hooks/useShare')['usePath']>
     readonly useResetObject: UnwrapRef<typeof import('../hooks/useObject')['useResetObject']>
     readonly useRules: UnwrapRef<typeof import('../hooks/useRules')['useRules']>
     readonly useSettingsStore: UnwrapRef<typeof import('../store/useSetting')['useSettingsStore']>
@@ -398,6 +415,7 @@ declare module 'vue' {
     readonly useSubscribe: UnwrapRef<typeof import('../hooks/useSubscribe')['useSubscribe']>
     readonly useTemplateRef: UnwrapRef<typeof import('vue')['useTemplateRef']>
     readonly useThrottle: UnwrapRef<typeof import('../hooks/useDebounce')['useThrottle']>
+    readonly useTitleBarOpacity: UnwrapRef<typeof import('../hooks/useBase')['useTitleBarOpacity']>
     readonly useUnit: UnwrapRef<typeof import('../hooks/useStyle')['useUnit']>
     readonly useUpdateManager: UnwrapRef<typeof import('../hooks/useBase')['useUpdateManager']>
     readonly useUserStore: UnwrapRef<typeof import('../store/useUser')['useUserStore']>

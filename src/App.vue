@@ -4,6 +4,7 @@ onLaunch(() => {
 })
 onShow(() => {
   console.log('App Show')
+  useAppShow()
 })
 onHide(() => {
   console.log('App Hide')

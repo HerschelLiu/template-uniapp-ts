@@ -32,7 +32,7 @@ export function useArgsStrToObj(url: string) {
   const query = url.split('&')
   query.forEach(item => {
     const [key, value] = item.split('=')
-    obj[key] = decodeURIComponent(value)
+    if (isHaveValue(value)) obj[key] = decodeURIComponent(value)
   })
 
   return obj

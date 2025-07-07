@@ -7,6 +7,8 @@
 onMounted(() => {
   getAgreement()
 })
+
+onShareAppMessage(() => useDefaultShareOptions())
 </script>
 
 <style lang="scss" scoped></style>
