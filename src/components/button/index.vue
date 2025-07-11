@@ -21,7 +21,9 @@ import { computed } from 'vue'
 
 defineOptions({
   name: 'CompButton',
-  virtualHost: true
+  options: {
+    virtualHost: true
+  }
 })
 
 const props = defineProps({
