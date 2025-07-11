@@ -19,6 +19,11 @@ import type { PropType } from 'vue'
 
 import { computed } from 'vue'
 
+defineOptions({
+  name: 'CompButton',
+  virtualHost: true
+})
+
 const props = defineProps({
   openType: {
     type: String as PropType<UniHelper.ButtonOpenType>,
